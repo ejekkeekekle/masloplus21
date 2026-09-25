@@ -1,0 +1,1787 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Масло Плюс | Замена масла и автосервис в Чебоксарах</title>
+<meta name="description" content="Сеть станций техобслуживания «Масло Плюс» в Чебоксарах: замена масла в двигателе бесплатно при покупке материалов, АКПП, DSG, CVT, МКПП, антифриз, проточка дисков, ремонт. 3 станции, без выходных.">
+<link rel="icon" href="img/logo.webp">
+<script>
+  // заставка: один раз за сессию, без неё если отключены анимации
+  try {
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches && sessionStorage.getItem('mp-intro') !== '1') {
+      document.documentElement.classList.add('intro');
+      sessionStorage.setItem('mp-intro', '1');
+    }
+  } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c11;
+  --bg-2:#10131a;
+  --surface:#151923;
+  --surface-2:#1b202c;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --text:#f2f4f8;
+  --muted:#9aa3b5;
+  --dim:#6b7488;
+  --blue:#2f63ff;
+  --blue-2:#1c47d4;
+  --gold:#ffd21f;
+  --gold-2:#f2b705;
+  --ok:#3ddc97;
+  --radius:20px;
+  --radius-sm:12px;
+  --max:1240px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --font:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Unbounded","Manrope",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--font);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+@media (min-width:768px){.wrap{padding:0 32px}}
+
+/* ---------- type ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--gold);border-radius:2px}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;margin:0}
+h2{font-size:clamp(28px,4.6vw,52px);line-height:1.08}
+h3{font-size:18px;line-height:1.25;font-weight:600}
+.lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:640px}
+.sec{padding:clamp(72px,10vw,128px) 0;position:relative}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head > div{max-width:720px}
+.sec-head h2{margin-top:16px}
+.sec-head .lead{margin:16px 0 0}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 26px;border-radius:14px;border:0;cursor:pointer;font-weight:700;font-size:16px;white-space:nowrap;transition:transform .25s var(--ease),background .25s,box-shadow .25s,color .25s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-gold{background:var(--gold);color:#111;box-shadow:0 10px 30px -10px rgba(255,210,31,.55)}
+.btn-gold:hover{background:#ffe04d;transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(255,210,31,.7)}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid var(--line-2);color:var(--text)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.btn-sm{height:44px;padding:0 18px;font-size:14px;border-radius:12px}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+.hdr.scrolled{background:rgba(10,12,17,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.hdr-in{display:flex;align-items:center;gap:24px;height:76px}
+.logo{display:flex;align-items:center;gap:12px;flex:none}
+.logo img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 4px 14px rgba(255,210,31,.25))}
+.logo b{display:block;font:700 17px/1 var(--display);letter-spacing:-.01em}
+.logo small{display:block;font-size:11px;color:var(--muted);margin-top:5px;letter-spacing:.04em;white-space:nowrap}
+.nav{display:none;gap:24px;margin-left:auto;white-space:nowrap}
+.nav a{font-size:15px;font-weight:600;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--text)}
+.hdr-cta{display:none;margin-left:24px}
+.burger{margin-left:auto;width:48px;height:48px;border-radius:12px;border:1px solid var(--line-2);background:rgba(255,255,255,.04);display:grid;place-items:center;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;position:relative;transition:.3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.menu-open .burger span{background:transparent}
+.menu-open .burger span::before{top:0;transform:rotate(45deg)}
+.menu-open .burger span::after{top:0;transform:rotate(-45deg)}
+.mnav{position:fixed;inset:76px 0 0;background:var(--bg);z-index:49;padding:24px 20px 40px;display:flex;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:.3s var(--ease);overflow:auto}
+.menu-open .mnav{opacity:1;visibility:visible;transform:none}
+.mnav a.l{font:600 24px/1 var(--display);padding:18px 0;border-bottom:1px solid var(--line)}
+.mnav .btn{margin-top:24px}
+.mnav .ph{margin-top:24px;display:grid;gap:14px;color:var(--muted);font-size:15px}
+.mnav .ph b{color:var(--text);display:block;font-size:17px}
+@media (min-width:1080px){.nav,.hdr-cta{display:flex}.burger{display:none}.mnav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:120px 0 64px;min-height:min(100svh,960px);display:flex;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(900px 520px at 85% 20%,rgba(47,99,255,.28),transparent 60%),
+  radial-gradient(600px 400px at 10% 90%,rgba(255,210,31,.10),transparent 60%);pointer-events:none}
+.hex-bg{position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 0 56 16v32L28 64 0 48V16zM28 64v33M0 48 0 97M56 48v49' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");mask-image:linear-gradient(180deg,#000 0%,transparent 75%);-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 75%)}
+.hero-grid{position:relative;display:grid;gap:48px;align-items:center}
+@media (min-width:1024px){.hero-grid{grid-template-columns:1.25fr .75fr;gap:64px}}
+.hero h1{font-size:clamp(34px,5.2vw,66px);line-height:1.02;margin:22px 0 0}
+.hero h1 em{font-style:normal;color:var(--gold);position:relative;white-space:nowrap}
+.hero .lead{margin:24px 0 0;font-size:clamp(17px,1.8vw,20px)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:48px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;max-width:620px}
+.hero-facts div{background:rgba(16,19,26,.85);padding:18px 20px}
+.hero-facts b{display:block;font:700 clamp(22px,2.6vw,30px)/1.1 var(--display)}
+.hero-facts span{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.35}
+@media (min-width:640px){.hero-facts{grid-template-columns:repeat(4,1fr)}}
+.hero-media{position:relative;justify-self:center;width:min(100%,460px)}
+.hero-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 40px 100px -30px rgba(47,99,255,.55),0 0 0 1px var(--line-2)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:heroZoom 14s var(--ease) forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,12,17,.85))}
+.hero-badge{position:absolute;left:-12px;bottom:28px;z-index:2;display:flex;align-items:center;gap:14px;background:rgba(21,25,35,.92);backdrop-filter:blur(10px);border:1px solid var(--line-2);border-radius:18px;padding:14px 18px;max-width:300px;box-shadow:0 20px 50px -20px #000}
+.hero-badge i{flex:none;width:44px;height:44px;border-radius:12px;background:var(--gold);display:grid;place-items:center;color:#111}
+.hero-badge i svg{width:22px;height:22px}
+.hero-badge b{display:block;font-size:15px;line-height:1.25}
+.hero-badge span{font-size:13px;color:var(--muted)}
+.hero-tag{position:absolute;right:-8px;top:24px;z-index:2;background:var(--blue);color:#fff;border-radius:14px;padding:10px 14px;font-weight:700;font-size:13px;box-shadow:0 14px 34px -12px rgba(47,99,255,.9)}
+@media (min-width:1024px){.hero-badge{left:-48px}.hero-tag{right:-28px}}
+
+/* ---------- promo ---------- */
+.promo{padding:0 0 clamp(72px,10vw,120px)}
+.promo-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.promo-grid{grid-template-columns:1.25fr 1fr}}
+.pcard{position:relative;border-radius:var(--radius);overflow:hidden;padding:clamp(24px,3.4vw,40px);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;border:1px solid var(--line-2)}
+.pcard img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s var(--ease)}
+.pcard:hover img.bg{transform:scale(1.04)}
+.pcard::before{content:"";position:absolute;inset:0;z-index:-1}
+.pcard.vibro{background:#0f1320}.pcard.vibro::before{background:linear-gradient(90deg,#0f1320 0%,#0f1320 46%,rgba(15,19,32,.55) 62%,rgba(15,19,32,0) 85%)}
+.pcard.vibro img.bg{object-position:0% center;left:auto;width:52%}
+@media (max-width:640px){.pcard.vibro img.bg{display:none}.pcard.vibro{background:radial-gradient(380px 260px at 100% 0%,rgba(47,99,255,.35),transparent 70%),#0f1320}}
+.pcard.warranty{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-2) 100%)}
+.pcard.warranty::before{background:radial-gradient(400px 260px at 100% 0%,rgba(255,210,31,.28),transparent 70%)}
+.ptag{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#111;border-radius:999px;padding:7px 12px;margin-bottom:auto}
+.pcard.warranty .ptag{background:rgba(255,255,255,.16);color:#fff}
+.pcard h3{font:700 clamp(22px,2.6vw,32px)/1.12 var(--display);margin-top:28px;max-width:440px}
+.pcard p{color:rgba(255,255,255,.78);margin:12px 0 0;max-width:440px}
+.code{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px}
+.code button{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 16px;border-radius:12px;border:1.5px dashed var(--gold);background:rgba(255,210,31,.08);color:var(--gold);font:700 16px/1 var(--display);letter-spacing:.02em;cursor:pointer;transition:.2s}
+.code button:hover{background:rgba(255,210,31,.16)}
+.code button svg{width:16px;height:16px}
+.code small{color:var(--muted);font-size:13px}
+
+/* ---------- services ---------- */
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px 28px;padding:0 20px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line-2);background:transparent;color:var(--muted);font-weight:600;font-size:14px;cursor:pointer;transition:.2s}
+.tab:hover{color:var(--text);border-color:rgba(255,255,255,.3)}
+.tab[aria-selected="true"]{background:var(--text);color:#0a0c11;border-color:var(--text)}
+.svc-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}.svc,.pcard,.kit,.br{min-width:0}
+@media (min-width:640px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+.svc{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .35s var(--ease),border-color .35s,background .35s}
+.svc:hover{transform:translateY(-4px);border-color:rgba(47,99,255,.5);background:var(--surface-2)}
+.svc.hidden{display:none}
+.svc-ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(47,99,255,.12);color:#7fa0ff;margin-bottom:22px}
+.svc-ic svg{width:26px;height:26px}
+.svc p{color:var(--muted);font-size:15px;margin:10px 0 0;flex:1}
+.svc ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.svc ul li{padding-left:18px;position:relative}.svc ul.cols{display:block}.svc ul.cols li{margin-bottom:6px}@media (min-width:640px){.svc ul.cols{columns:2;column-gap:32px}}
+.svc ul li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:2px;background:var(--blue)}
+.svc-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.price{font:700 20px/1.1 var(--display);white-space:nowrap}
+.price small{display:block;font:500 12px/1.3 var(--font);color:var(--dim);margin-top:4px;white-space:normal}
+.price.free{color:var(--ok)}
+.price.ask{font-size:15px;color:var(--muted)}
+.svc-link{flex:none;height:42px;padding:0 16px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid var(--line-2);font-weight:700;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.svc-link:hover{background:var(--gold);color:#111;border-color:var(--gold)}
+.svc-link svg{width:14px;height:14px}
+.svc-wide{grid-column:1/-1}@media (min-width:1024px){.svc-wide{grid-column:span 2}}
+.svc.feature{background:linear-gradient(160deg,#1a2442 0%,var(--surface) 60%);border-color:rgba(47,99,255,.35)}
+.svc .flag{position:absolute;top:24px;right:24px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#111;background:var(--gold);border-radius:999px;padding:5px 10px}
+
+/* ---------- prices ---------- */
+.prices{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kits{display:grid;gap:16px;margin-bottom:clamp(56px,8vw,88px)}
+@media (min-width:900px){.kits{grid-template-columns:repeat(3,1fr)}}
+.kit{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+.kit-top{display:flex;align-items:center;gap:14px}
+.kit-top img{width:96px;height:64px;object-fit:cover;background:#fff;border-radius:12px;padding:0;display:block;flex:0 0 96px;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.kit-top b{display:block;font:600 17px/1.2 var(--display)}
+.kit-top span{font-size:13px;color:var(--muted)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.05);border-radius:12px;padding:4px;margin:22px 0 18px}
+.seg button{height:38px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-weight:700;font-size:14px;cursor:pointer;transition:.2s}
+.seg button[aria-pressed="true"]{background:var(--text);color:#0a0c11}
+.kit dl{margin:0;display:grid;gap:10px;font-size:14px;flex:1}
+.kit dl div{display:flex;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px dashed var(--line-2)}
+.kit dt{color:var(--muted)}
+.kit dd{margin:0;text-align:right;font-weight:600}
+.kit dd.free{color:var(--ok)}
+.kit-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:20px}
+.kit-price{font:700 32px/1 var(--display)}
+.kit-price small{display:block;font:500 12px/1 var(--font);color:var(--dim);margin-bottom:8px}
+.kit-note{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;border:1px dashed var(--line-2);border-radius:var(--radius);padding:22px 26px;grid-column:1/-1}
+.kit-note b{font:600 17px/1.3 var(--display)}
+.kit-note p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.ptable-wrap{display:grid;gap:16px}
+@media (min-width:1024px){.ptable-wrap{grid-template-columns:260px 1fr;gap:40px;align-items:start}}
+.plegend{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;font-size:14px;color:var(--muted)}
+@media (min-width:1024px){.plegend{position:sticky;top:100px}}
+.plegend b{color:var(--text);display:block;font-size:15px;margin-bottom:8px}
+.plegend .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:middle}
+.plegend p{margin:10px 0 0}
+.pgroup{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.pgroup + .pgroup{margin-top:12px}
+.pgroup summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;font:600 17px/1.2 var(--display)}
+.pgroup summary::-webkit-details-marker{display:none}
+.pgroup summary .from{margin-left:auto;font:600 14px/1 var(--font);color:var(--muted);white-space:nowrap}
+.pgroup summary .chev{flex:none;width:32px;height:32px;border-radius:10px;background:rgba(255,255,255,.06);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.pgroup summary .chev svg{width:14px;height:14px}
+.pgroup[open] summary .chev{transform:rotate(180deg)}
+.ptable{width:100%;border-collapse:collapse;font-size:15px}
+.ptable th{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);text-align:right;padding:10px 24px;border-top:1px solid var(--line)}
+.ptable th:first-child{text-align:left}
+.ptable td{padding:14px 24px;border-top:1px solid var(--line);vertical-align:top}
+.ptable td:not(:first-child){text-align:right;white-space:nowrap;font-weight:700;width:1%}
+.ptable td:nth-child(2){color:var(--gold)}
+.ptable td .free{color:var(--ok)}
+.ptable tr:hover td{background:rgba(255,255,255,.025)}
+@media (max-width:560px){
+  .ptable th,.ptable td{padding:12px 14px}
+  .ptable th{font-size:10px;letter-spacing:.02em}
+  .ptable{font-size:14px}
+  .pgroup summary{padding:18px 16px;font-size:16px}
+  .pgroup summary .from{display:none}
+}
+
+/* ---------- why ---------- */
+.why-grid{display:grid;gap:16px}
+@media (min-width:720px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1080px){.why-grid{grid-template-columns:repeat(3,1fr)}}
+.why{padding:30px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(180deg,var(--surface),transparent 140%)}
+.why .n{font:700 44px/1 var(--display);background:linear-gradient(180deg,var(--gold),var(--gold-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.why h3{margin-top:20px;font-size:19px}
+.why p{margin:10px 0 0;color:var(--muted);font-size:15px}
+.why.wide{grid-column:1/-1;display:grid;gap:24px;align-items:center;padding:0;overflow:hidden}
+@media (min-width:900px){.why.wide{grid-template-columns:1fr 1fr}}
+.why.wide .tx{padding:34px}
+.why.wide img{width:100%;height:100%;min-height:260px;max-height:420px;object-fit:cover}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;gap:40px;align-items:center}
+@media (min-width:1024px){.about-grid{grid-template-columns:1fr 1fr;gap:72px}}
+.about-mosaic{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-mosaic img{width:100%;height:100%;object-fit:cover;border-radius:16px;aspect-ratio:3/4}
+.about-mosaic img:first-child{grid-row:span 2;aspect-ratio:auto;height:100%}
+.about-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+.about-list li{display:flex;gap:14px;align-items:flex-start;color:var(--muted)}
+.about-list li b{color:var(--text)}
+.about-list svg{flex:none;width:22px;height:22px;color:var(--gold);margin-top:2px}
+
+/* ---------- steps ---------- */
+.steps{display:grid;gap:14px;counter-reset:s}
+@media (min-width:900px){.steps{grid-template-columns:repeat(5,1fr);gap:0}}
+.step{position:relative;padding:26px 24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+@media (min-width:900px){
+  .step{border-radius:0;border-left:0;background:transparent;border:0;border-top:2px solid var(--line-2);padding:28px 20px 0 0}
+  .step::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--gold)}
+}
+.step .k{font:700 13px/1 var(--display);color:var(--gold);letter-spacing:.08em}
+.step h3{margin-top:14px}
+.step p{margin:8px 0 0;color:var(--muted);font-size:15px}
+
+/* ---------- reviews ---------- */
+.rev-wrap{display:grid;gap:24px}
+@media (min-width:1024px){.rev-wrap{grid-template-columns:340px 1fr;gap:40px}}
+.rev-side{display:grid;gap:10px;align-content:start}
+.rev-btn{display:flex;align-items:center;gap:14px;text-align:left;width:100%;padding:18px 20px;border-radius:16px;border:1px solid var(--line);background:var(--surface);cursor:pointer;transition:.2s}
+.rev-btn:hover{border-color:var(--line-2)}
+.rev-btn[aria-selected="true"]{border-color:var(--gold);background:var(--surface-2)}
+.rev-btn i{flex:none;width:40px;height:40px;border-radius:12px;background:rgba(255,210,31,.12);color:var(--gold);display:grid;place-items:center;font:700 15px/1 var(--display);font-style:normal}
+.rev-btn b{display:block;font-size:15px}
+.rev-btn span{font-size:13px;color:var(--muted)}
+.rev-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.rev-frame{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-2);background:#fff;height:640px}
+.rev-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.rev-frame .ph{position:absolute;inset:0;display:grid;place-items:center;background:var(--surface);color:var(--muted);font-size:15px;text-align:center;padding:24px}
+@media (max-width:640px){.rev-frame{height:560px}}
+
+/* ---------- gallery ---------- */
+.gal{columns:2;column-gap:12px}
+@media (min-width:768px){.gal{columns:3;column-gap:16px}}
+@media (min-width:1100px){.gal{columns:4}}
+.gal button{display:block;width:100%;padding:0;margin:0 0 12px;border:0;border-radius:16px;overflow:hidden;cursor:zoom-in;background:var(--surface);break-inside:avoid;position:relative}
+@media (min-width:768px){.gal button{margin-bottom:16px}}
+.gal img{width:100%;height:auto;transition:transform .6s var(--ease),filter .6s}
+.gal button:hover img{transform:scale(1.05);filter:brightness(1.08)}
+.gal figcaption{position:absolute;left:10px;bottom:10px;right:10px;text-align:left;font-size:12px;font-weight:700;color:#fff;background:rgba(10,12,17,.72);backdrop-filter:blur(6px);padding:6px 10px;border-radius:8px;opacity:0;transform:translateY(6px);transition:.3s}
+.gal button:hover figcaption,.gal button:focus-visible figcaption{opacity:1;transform:none}
+@media (hover:none){.gal figcaption{opacity:1;transform:none}}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,6,9,.94);display:grid;place-items:center;padding:24px;opacity:0;visibility:hidden;transition:.3s}
+.lb.open{opacity:1;visibility:visible}
+.lb img{max-width:min(1000px,100%);max-height:84vh;border-radius:14px;object-fit:contain}
+.lb p{color:var(--muted);text-align:center;margin:14px 0 0;font-size:14px}
+.lb-x,.lb-nav{position:absolute;width:52px;height:52px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:grid;place-items:center}
+.lb-x{top:18px;right:18px}
+.lb-nav{top:50%;transform:translateY(-50%)}
+.lb-prev{left:18px}.lb-next{right:18px}
+.lb svg{width:20px;height:20px}
+@media (max-width:640px){.lb-nav{top:auto;bottom:24px;transform:none}}
+
+/* ---------- CTA form ---------- */
+.cta{position:relative;border-radius:32px;overflow:hidden;padding:clamp(28px,5vw,64px);background:linear-gradient(135deg,#1d3fb8 0%,#122a80 55%,#0d1b52 100%);isolation:isolate;display:grid;gap:40px}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(520px 320px at 100% 0%,rgba(255,210,31,.25),transparent 70%)}
+.cta .hex-bg{opacity:.08;mask-image:linear-gradient(90deg,transparent,#000);-webkit-mask-image:linear-gradient(90deg,transparent,#000)}
+@media (min-width:1024px){.cta{grid-template-columns:1fr 440px;align-items:center;gap:64px}}
+.cta h2{font-size:clamp(28px,4vw,48px)}
+.cta .lead{color:rgba(255,255,255,.78);margin-top:18px}
+.cta-alt{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.form{position:relative;background:rgba(10,12,17,.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:28px;display:grid;gap:14px}
+.form label{display:grid;gap:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,.72)}
+.form input,.form select{height:54px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);padding:0 16px;font-size:16px;outline:none;transition:border-color .2s,background .2s;width:100%}
+.form select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='m1 1.5 5 5 5-5' stroke='%23fff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.form select option{background:#151923;color:#fff}
+.form input:focus,.form select:focus{border-color:var(--gold);background:rgba(255,255,255,.1)}
+.form input[aria-invalid="true"]{border-color:#ff6b6b}
+.form .btn{width:100%;margin-top:6px}
+.form .fine{font-size:12px;color:rgba(255,255,255,.5);margin:0;text-align:center}
+.form-ok{position:absolute;inset:0;border-radius:24px;background:#0f1422;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;gap:12px}
+.form.sent .form-ok{display:flex}
+.form-ok i{width:64px;height:64px;border-radius:50%;background:rgba(61,220,151,.14);color:var(--ok);display:grid;place-items:center}
+.form-ok i svg{width:30px;height:30px}
+.form-ok b{font:700 22px/1.2 var(--display)}
+.form-ok p{margin:0;color:var(--muted)}
+
+/* ---------- contacts ---------- */
+.branches{display:grid;gap:16px}
+@media (min-width:900px){.branches{grid-template-columns:repeat(3,1fr)}}
+.br{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:18px;transition:border-color .3s}
+.br:hover{border-color:var(--line-2)}
+.br-h{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.br-h h3{font-size:20px}
+.br-h span{font-size:13px;color:var(--muted);display:block;margin-top:6px}
+.br-badge{flex:none;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,210,31,.12);color:var(--gold);border-radius:999px;padding:6px 10px}
+.br-rows{display:grid;gap:12px;font-size:15px}
+.br-rows a,.br-rows div{display:flex;align-items:center;gap:12px}
+.br-rows svg{flex:none;width:18px;height:18px;color:var(--dim)}
+.br-rows a:hover{color:var(--gold)}
+.br-rows small{color:var(--muted)}
+.br-act{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.chip{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:13px;font-weight:700;transition:.2s}
+.chip:hover{background:rgba(255,255,255,.12);border-color:var(--line-2)}
+.chip svg{width:15px;height:15px}
+.map{margin-top:16px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-2);height:460px;background:var(--surface);position:relative}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.2) contrast(1.05)}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
+.socials span{color:var(--muted);font-size:14px;margin-right:6px}
+.soc{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);transition:.25s}
+.soc:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
+.soc svg{width:22px;height:22px}
+
+/* ---------- footer ---------- */
+.ftr{border-top:1px solid var(--line);padding:64px 0 120px;background:var(--bg-2);font-size:14px;color:var(--muted)}
+@media (min-width:1080px){.ftr{padding-bottom:40px}}
+.ftr-grid{display:grid;gap:40px}
+@media (min-width:900px){.ftr-grid{grid-template-columns:1.3fr 1fr 1fr 1.3fr}}
+.ftr h4{margin:0 0 16px;font:600 13px/1 var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ftr a:hover{color:var(--text)}
+.ftr .logo{margin-bottom:16px}
+.ftr .logo small,.ftr .logo b{color:var(--text)}
+.ftr-bot{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--dim)}
+
+.credits{margin-top:20px;display:flex;align-items:baseline;justify-content:center;gap:6px;font-size:13px;color:var(--dim)}
+.credits small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+.credits a{color:var(--muted);transition:color .2s}
+.credits a:hover{color:var(--gold)}
+
+/* ---------- mobile bar ---------- */
+.mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:grid;grid-template-columns:1fr 1.4fr;gap:8px;padding:8px;border-radius:18px;background:rgba(21,25,35,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line-2);box-shadow:0 20px 40px -12px #000;transform:translateY(140%);transition:transform .4s var(--ease)}
+.mbar.show{transform:none}
+.mbar .btn{height:50px;font-size:15px;padding:0 12px}
+@media (min-width:1080px){.mbar{display:none}}
+
+/* ---------- phones popover ---------- */
+.phones{position:relative}
+.phones-btn{display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;padding:6px 0;text-align:left}
+.phones-btn svg{width:18px;height:18px;color:var(--gold)}
+.phones-btn b{display:block;font-size:15px;white-space:nowrap}
+.phones-btn small{display:block;font-size:12px;color:var(--muted);white-space:nowrap}
+.phones-pop{position:absolute;right:0;top:calc(100% + 12px);width:300px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:16px;padding:8px;box-shadow:0 24px 60px -20px #000;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.25s var(--ease)}
+.phones:hover .phones-pop,.phones:focus-within .phones-pop{opacity:1;visibility:visible;transform:none}
+.phones-pop a{display:block;padding:12px 14px;border-radius:10px}
+.phones-pop a:hover{background:rgba(255,255,255,.06)}
+.phones-pop a b{display:block;font-size:15px}
+.phones-pop a small{font-size:13px;color:var(--muted)}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);background:var(--text);color:#0a0c11;font-weight:700;font-size:14px;padding:12px 18px;border-radius:12px;z-index:120;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- LED hex ceiling ---------- */
+.hexlights{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;display:block}
+.hero .hexlights{-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.25) 0,rgba(0,0,0,.25) 70px,#000 190px,#000 50%,transparent 88%);mask-image:linear-gradient(180deg,rgba(0,0,0,.25) 0,rgba(0,0,0,.25) 70px,#000 190px,#000 50%,transparent 88%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(820px 560px at 24% 58%,rgba(10,12,17,.94),rgba(10,12,17,.72) 45%,transparent 78%)}
+.hero-grid{z-index:1}
+.cta .hexlights{-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 55%);mask-image:linear-gradient(90deg,transparent 0%,#000 55%);opacity:.9}
+
+/* ---------- split headings ---------- */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.split .wi{display:inline-block;transform:translateY(110%);transition:transform 1.1s var(--ease);transition-delay:calc(var(--i) * 55ms)}
+.split.in .wi{transform:none}
+
+/* ---------- marquee ---------- */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:22px 0;margin:0 0 clamp(56px,8vw,96px);position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mq-track{display:flex;align-items:center;gap:36px;width:max-content;animation:mq 46s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track span{font:700 clamp(22px,3.2vw,40px)/1 var(--display);letter-spacing:-.02em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.32)}
+.mq-track span:nth-child(4n+1){color:var(--text);-webkit-text-stroke:0}
+.mq-track i{flex:none;width:14px;height:16px;background:var(--gold);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);filter:drop-shadow(0 0 8px rgba(255,210,31,.9))}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- LED strip in header ---------- */
+.hdr .hexlights{opacity:0;transition:opacity .8s var(--ease);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.hdr.scrolled .hexlights{opacity:.55}
+.hdr-in{position:relative;z-index:1}
+
+/* ---------- intro ---------- */
+.intro{position:fixed;inset:0;z-index:300;background:var(--bg);display:none;place-items:center;transition:opacity .7s var(--ease),visibility .7s}
+html.intro .intro{display:grid}
+.intro.out{opacity:0;visibility:hidden}
+.intro-box{position:relative;width:180px;height:180px;transition:transform .8s var(--ease)}
+.intro.out .intro-box{transform:scale(1.35)}
+.intro-box::before{content:"";position:absolute;inset:-60px;border-radius:50%;background:radial-gradient(closest-side,rgba(47,99,255,.35),transparent);opacity:0;animation:introFade .8s var(--ease) .6s forwards}
+.intro svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.intro line{stroke:#eef3ff;stroke-width:3.4;stroke-linecap:round;opacity:0;animation:tubeOn .6s linear forwards;animation-delay:var(--d)}
+.intro img{position:absolute;left:50%;top:50%;width:66px;height:66px;object-fit:contain;transform:translate(-50%,-50%) scale(.75);opacity:0;animation:logoIn .7s var(--ease) .8s forwards}
+.intro-name{position:absolute;left:50%;top:calc(100% + 26px);transform:translateX(-50%);margin:0;white-space:nowrap;font:600 12px/1 var(--font);letter-spacing:.34em;text-transform:uppercase;color:var(--muted);opacity:0;animation:introFade .7s var(--ease) 1s forwards}
+@keyframes tubeOn{0%{opacity:0}10%{opacity:.9}18%{opacity:.08}32%{opacity:1}40%{opacity:.3}58%,100%{opacity:1}}
+@keyframes logoIn{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes introFade{to{opacity:1}}
+html.intro .hero .split .wi{transition-delay:calc(1.45s + var(--i) * 55ms)}
+html.intro .hero .rv{transition-delay:1.5s!important}
+
+/* ---------- spotlight cards ---------- */
+.spot{position:relative;isolation:isolate}
+.spot::before,.spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s}
+.spot::after{z-index:-1;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(120,160,255,.11),transparent 45%)}
+.spot::before{padding:1px;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,210,31,.75),rgba(47,99,255,.35) 45%,transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.spot:hover::before,.spot:hover::after{opacity:1}
+
+/* ---------- hero tilt ---------- */
+.hero-photo{transform:perspective(1100px) rotateX(calc(var(--ty,0) * -5deg)) rotateY(calc(var(--tx,0) * 7deg));transition:transform .6s var(--ease)}
+.hero-badge{transform:translate(calc(var(--tx,0) * -16px),calc(var(--ty,0) * -10px));transition:transform .6s var(--ease)}
+.hero-tag{transform:translate(calc(var(--tx,0) * 20px),calc(var(--ty,0) * 12px));transition:transform .6s var(--ease)}
+.hero-photo .sheen{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(420px circle at calc(50% + var(--tx,0) * 40%) calc(40% + var(--ty,0) * 40%),rgba(255,255,255,.16),transparent 55%);mix-blend-mode:overlay}
+
+/* ---------- image reveal ---------- */
+.clip{clip-path:inset(10% 10% 10% 10% round 16px);opacity:0;transition:clip-path 1.3s var(--ease),opacity .9s var(--ease);transition-delay:calc(var(--i,0) * 70ms)}
+.clip.in{clip-path:inset(0 0 0 0 round 16px);opacity:1}
+
+@media (prefers-reduced-motion:reduce){
+  .split .wi{transform:none!important}
+  .clip{clip-path:none!important;opacity:1!important}
+  .mq-track{animation:none!important}
+}
+
+/* ---------- responsive polish / mobile + desktop ---------- */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+.wrap{width:100%}
+
+@media (max-width:1079px){
+  .hdr-in{height:68px}
+  .mnav{inset:68px 0 0;padding-top:18px}
+  .logo img{width:40px;height:40px}
+  .hero{padding-top:104px}
+}
+
+@media (max-width:767px){
+  .wrap{padding-left:16px;padding-right:16px}
+  .sec{padding:64px 0}
+  .sec-head{gap:16px;margin-bottom:30px}
+  .sec-head h2{margin-top:12px}
+  .lead{line-height:1.5}
+
+  .btn{min-height:52px;height:auto;padding:14px 18px;white-space:normal;text-align:center}
+  .btn-sm{min-height:44px;padding:11px 14px}
+
+  .hero{padding:96px 0 56px;min-height:auto;align-items:initial}
+  .hero-grid{gap:34px}
+  .hero h1{font-size:clamp(31px,9.2vw,43px);line-height:1.05;margin-top:18px}
+  .hero h1 em{white-space:normal}
+  .hero .lead{font-size:16px;margin-top:18px}
+  .hero-cta{display:grid;grid-template-columns:1fr;gap:10px;margin-top:26px}
+  .hero-facts{margin-top:30px;grid-template-columns:repeat(2,1fr);border-radius:16px}
+  .hero-facts div{padding:15px 14px}
+  .hero-facts b{font-size:22px}
+  .hero-facts span{font-size:12px}
+  .hero-media{width:min(100%,360px);margin:0 auto}
+  .hero-photo{border-radius:22px;aspect-ratio:4/5;transform:none!important}
+  .hero-badge{left:10px;bottom:16px;max-width:calc(100% - 20px);padding:11px 13px;border-radius:14px}
+  .hero-badge i{width:38px;height:38px;border-radius:10px}
+  .hero-badge b{font-size:13px}
+  .hero-badge span{font-size:11px}
+  .hero-tag{right:10px;top:14px;padding:8px 10px;font-size:11px}
+
+  .promo{padding-bottom:64px}
+  .promo-grid{gap:12px}
+  .pcard{min-height:300px;padding:22px;border-radius:18px}
+  .pcard h3{font-size:23px;margin-top:22px}
+  .pcard p{font-size:14px}
+  .code{gap:8px}
+  .code button{max-width:100%;height:46px;font-size:14px;padding:0 13px}
+
+  .tabs{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px;margin-bottom:20px}
+  .tab{height:42px;padding:0 15px}
+
+  .svc{padding:22px;border-radius:18px}
+  .svc-ic{width:46px;height:46px;margin-bottom:18px}
+  .svc h3{font-size:17px}
+  .svc p{font-size:14px}
+  .svc ul{font-size:13px}
+  .svc-foot{align-items:flex-start;flex-wrap:wrap}
+  .svc-link{height:40px}
+
+  .kits{gap:12px;margin-bottom:48px}
+  .kit{padding:20px;border-radius:18px}
+  .kit-price{font-size:27px}
+  .kit-note{padding:18px;border-radius:18px}
+  .kit-note .btn{width:100%}
+
+  .ptable-wrap{gap:12px}
+  .plegend{padding:18px;border-radius:18px}
+  .pgroup{border-radius:16px}
+  .pgroup summary{min-height:58px}
+  .ptable{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  .ptable th,.ptable td{padding:11px 12px}
+  .ptable th:first-child,.ptable td:first-child{white-space:normal;min-width:150px}
+  .ptable th{font-size:9px}
+  .ptable td{font-size:13px}
+
+  .why{padding:22px;border-radius:18px}
+  .why .n{font-size:38px}
+  .why h3{font-size:17px;margin-top:15px}
+  .why p{font-size:14px}
+  .why.wide{display:block}
+  .why.wide .tx{padding:22px}
+  .why.wide img{min-height:210px;max-height:none}
+
+  .about-grid{gap:30px}
+  .about-mosaic{gap:8px}
+  .about-mosaic img{border-radius:12px}
+
+  .steps{gap:10px}
+  .step{padding:21px 18px;border-radius:16px}
+  .step h3{font-size:17px}
+
+  .rev-wrap{gap:18px}
+  .rev-btn{padding:14px 15px;border-radius:14px}
+  .rev-frame{height:500px;border-radius:18px}
+
+  .gal{columns:2;column-gap:8px}
+  .gal button{margin-bottom:8px;border-radius:12px}
+
+  .cta{border-radius:22px;padding:24px 18px;gap:24px}
+  .cta h2{font-size:29px;line-height:1.08}
+  .cta .lead{font-size:15px}
+  .cta-alt{display:grid;grid-template-columns:1fr;gap:8px}
+  .form{padding:18px;border-radius:18px}
+  .form input,.form select{height:52px}
+
+  .branches{gap:12px}
+  .br{padding:21px;border-radius:18px}
+  .br-h h3{font-size:18px}
+  .br-rows{font-size:14px}
+  .map{height:340px;border-radius:18px}
+  .socials{margin-top:22px}
+
+  .ftr{padding:52px 0 112px}
+  .ftr-grid{gap:30px}
+  .ftr-bot{margin-top:36px}
+
+  .mbar{left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));padding:7px;border-radius:16px}
+  .mbar .btn{height:48px;min-height:48px;padding:0 9px;font-size:13px}
+
+  .marquee{padding:17px 0;margin-bottom:52px}
+  .mq-track{gap:24px}
+  .mq-track span{font-size:23px}
+  .mq-track i{width:10px;height:12px}
+
+  .phones-pop{position:fixed;left:16px;right:16px;top:76px;width:auto}
+}
+
+@media (max-width:380px){
+  .logo b{font-size:15px}
+  .logo small{font-size:9px}
+  .hero h1{font-size:30px}
+  .hero-facts b{font-size:19px}
+  .hero-facts span{font-size:11px}
+  .hero-badge{bottom:10px}
+  .pcard{min-height:280px;padding:19px}
+  .svc{padding:19px}
+  .kit{padding:18px}
+  .cta{padding:22px 15px}
+}
+
+@media (min-width:768px) and (max-width:1079px){
+  .hero{padding-top:116px}
+  .hero-grid{grid-template-columns:1fr 360px;gap:38px}
+  .hero h1{font-size:clamp(40px,6vw,58px)}
+  .hero-media{width:100%;max-width:360px}
+}
+
+@media (min-width:1080px){
+  .hero{padding-top:120px}
+}
+
+@media (hover:none){
+  .svc:hover,.btn:hover,.svc-link:hover,.pcard:hover img.bg{transform:none}
+  .spot::before,.spot::after{display:none}
+  .gal button:hover img{transform:none;filter:none}
+}
+
+@supports (padding:max(0px)){
+  .mnav{padding-bottom:max(40px,env(safe-area-inset-bottom))}
+  .mbar{bottom:max(8px,env(safe-area-inset-bottom))}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-photo,.hero-badge,.hero-tag{transform:none!important}
+}
+
+</style>
+
+<style id="old-gallery-overrides">
+  .gal{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .gal button{min-height:260px}
+  .gal img{width:100%;height:100%;object-fit:cover;display:block}
+  @media (max-width:1079px){.gal{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (max-width:767px){.gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gal button{min-height:210px}}
+</style>
+
+
+<style id="premium-brand-portfolio">
+  .mp-brand-logo,
+  .mp-header-logo img{
+    width:auto!important;
+    height:42px!important;
+    max-width:170px!important;
+    object-fit:contain!important;
+    display:block!important;
+  }
+  .mp-header-logo{
+    display:flex!important;
+    align-items:center!important;
+    flex:0 0 auto!important;
+    text-decoration:none!important;
+  }
+  .gal button{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px!important;
+    background:#111!important;
+  }
+  .gal button::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,0) 48%);
+    pointer-events:none;
+  }
+  .gal figcaption{
+    position:absolute;
+    z-index:2;
+    left:18px;
+    right:18px;
+    bottom:16px;
+    margin:0;
+    color:#fff!important;
+    font-size:14px!important;
+    font-weight:600!important;
+    line-height:1.25!important;
+    text-align:left!important;
+    letter-spacing:.01em;
+  }
+  @media(max-width:767px){
+    .mp-brand-logo,.mp-header-logo img{height:34px!important;max-width:145px!important}
+    .gal button{border-radius:16px!important}
+    .gal figcaption{left:12px;right:12px;bottom:11px;font-size:12px!important}
+  }
+
+  /* Брендовый логотип из предоставленного файла */
+  .hdr .mp-header-logo{gap:0!important;min-width:0!important}
+  .hdr .mp-brand-logo,.ftr .mp-brand-logo{width:auto!important;height:58px!important;max-width:180px!important;object-fit:contain!important;filter:none!important}
+  .ftr .mp-header-logo{gap:0!important}
+  @media(max-width:767px){.hdr .mp-brand-logo,.ftr .mp-brand-logo{height:48px!important;max-width:155px!important}}
+</style>
+
+<style id="final-brand-hero-fix">
+.hdr .mp-brand-logo,.ftr .mp-brand-logo,.mp-header-logo img{filter:none!important;mix-blend-mode:normal!important;opacity:1!important}
+/* Clean white tile behind the logo so the gold/navy mark stays readable on the dark header */
+.hdr .mp-header-logo{width:56px;height:56px;display:grid;place-items:center;flex:none;background:#fff;border-radius:10px;padding:4px;box-sizing:border-box;box-shadow:0 6px 22px rgba(0,0,0,.24)}
+.hdr .mp-header-logo img{width:48px!important;height:48px!important;max-width:none!important;object-fit:contain;display:block}
+@media (max-width:698px){.hdr .mp-header-logo{width:52px;height:52px;padding:4px;border-radius:9px}.hdr .mp-header-logo img{width:44px!important;height:44px!important}}
+.hero{min-height:min(820px,100svh)!important;padding:150px 0 72px!important;background:linear-gradient(90deg,rgba(5,7,10,.92) 0%,rgba(5,7,10,.72) 42%,rgba(5,7,10,.28) 75%,rgba(5,7,10,.38) 100%),linear-gradient(180deg,rgba(5,7,10,.35) 0%,rgba(5,7,10,.08) 45%,rgba(5,7,10,.72) 100%),url("img/hero.webp") center center/cover no-repeat!important}
+.hero::before,.hero .hexlights{display:none!important}
+.hero-grid{grid-template-columns:minmax(0,1fr)!important;max-width:920px!important;margin-left:0!important}
+.hero-grid>div:first-child{max-width:760px}
+.hero h1{text-shadow:0 3px 24px rgba(0,0,0,.45)}
+.hero .lead{max-width:720px;text-shadow:0 2px 14px rgba(0,0,0,.4)}
+.hero-media{display:none!important}
+.hero-facts div{background:rgba(10,12,16,.78)!important;backdrop-filter:blur(10px)}
+@media(max-width:767px){.hero{min-height:760px!important;padding:125px 0 48px!important;background-position:62% center!important}.hero-grid>div:first-child{max-width:100%}}
+
+.booking-contact{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-height:100%;padding:28px}
+.booking-contact-label{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:10px}
+.booking-contact-text{margin:0 0 18px;color:#fff;font-size:18px;line-height:1.45}
+.booking-telegram{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+.booking-telegram svg{width:18px;height:18px;fill:currentColor}
+@media (max-width:640px){.booking-contact{padding:24px}.booking-contact-text{font-size:16px}}
+</style>
+
+<style id="mobile-pass">
+/* галерея: ровная сетка без полос */
+.gal{columns:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.gal button{margin:0!important;min-height:0!important;aspect-ratio:4/5}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal-more{display:none;margin:20px auto 0;width:100%}
+@media (max-width:1079px){.gal{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
+@media (max-width:767px){
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .gal:not(.all) button:nth-child(n+9){display:none}
+  .gal:not(.all) + .gal-more{display:flex}
+  .gal figcaption{font-size:11px!important;left:10px;right:10px;bottom:9px}
+
+  /* контакты: плашка не вылезает за карточку */
+  .br-h{flex-direction:column-reverse;align-items:flex-start;gap:10px}
+  .br-act .chip{flex:1 1 auto;justify-content:center}
+
+  /* запись: без дубля кнопок */
+  .cta .booking-contact{display:none}
+  .cta-alt .btn{width:100%}
+
+  /* подвал компактнее */
+  .ftr-grid{grid-template-columns:1fr 1fr;gap:28px 16px}
+  .ftr-grid>div:first-child,.ftr-grid>div:last-child{grid-column:1/-1}
+
+  .map{height:300px}
+  .rev-frame{height:460px}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.5 6 11.3a6 6 0 0 1-12 0c0-4.8 6-11.3 6-11.3z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+  <symbol id="i-engine" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h2V7h4V5h4v2h3l2 3h2v6h-2l-2 3H8l-2-3H4z"/><path d="M1 11v4"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-disc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V4a2 2 0 1 0-4 0v10.8a4 4 0 1 0 4 0z"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l3-7 4 14 4-10 2 3h4"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
+  <symbol id="i-flush" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
+  <symbol id="i-axle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="3"/><circle cx="19" cy="12" r="3"/><path d="M8 12h8M12 8v8"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.2c.4-.4-.1-.6-.6-.2L6.3 13 1.5 11.5c-1-.3-1-1 .2-1.5L20.6 2.8c.9-.3 1.6.2 1.3 1.5z"/></symbol>
+  <symbol id="i-vk" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 18.5C6.3 18.5 2.6 14 2.5 6.5h3.3c.1 5.5 2.5 7.8 4.4 8.3V6.5h3.1v4.7c1.9-.2 3.9-2.4 4.5-4.7h3.1a9.2 9.2 0 0 1-4.2 6 9.5 9.5 0 0 1 4.9 6h-3.4a5.9 5.9 0 0 0-4.9-4.3v4.3z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+</svg>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-box">
+    <svg viewBox="0 0 200 200">
+      <defs><filter id="tubeGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="a"/><feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/><feColorMatrix in="b" type="matrix" values="0 0 0 0 .35  0 0 0 0 .55  0 0 0 0 1  0 0 0 1.4 0" result="c"/><feMerge><feMergeNode in="c"/><feMergeNode in="a"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <g filter="url(#tubeGlow)">
+        <line x1="176.8" y1="105.5" x2="143.2" y2="163.8" style="--d:.05s"/>
+        <line x1="133.6" y1="169.3" x2="66.4" y2="169.3" style="--d:.38s"/>
+        <line x1="56.8" y1="163.8" x2="23.2" y2="105.5" style="--d:.16s"/>
+        <line x1="23.2" y1="94.5" x2="56.8" y2="36.2" style="--d:.5s"/>
+        <line x1="66.4" y1="30.7" x2="133.6" y2="30.7" style="--d:.26s"/>
+        <line x1="143.2" y1="36.2" x2="176.8" y2="94.5" style="--d:.62s"/>
+      </g>
+    </svg>
+    <img src="img/logo.webp" alt="">
+    <p class="intro-name">Масло Плюс</p>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" id="hdr">
+  <canvas class="hexlights" data-mode="strip" data-r="15" aria-hidden="true"></canvas>
+  <div class="wrap hdr-in">
+    <a href="#top" class="logo mp-header-logo" aria-label="Масло Плюс, на главную"><img class="mp-brand-logo" src="img/logo.webp" alt="Масло Плюс"></a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#prices">Цены</a>
+      <a href="#about">О нас</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="phones hdr-cta">
+      <button class="phones-btn" type="button" aria-haspopup="true">
+        <svg><use href="#i-phone"/></svg>
+        <span><b>3 станции в Чебоксарах</b><small>Пн-Пт 9-19, Сб-Вс 9-17</small></span>
+      </button>
+      <div class="phones-pop" role="menu">
+        <a href="tel:+78352242411" role="menuitem"><b>24-24-11</b><small>ул. Л. Комсомола, 29</small></a>
+        <a href="tel:+78352386383" role="menuitem"><b>386-383</b><small>ул. Б. Хмельницкого, 73</small></a>
+        <a href="tel:+78352212288" role="menuitem"><b>21-22-88</b><small>ул. Университетская, 35А</small></a>
+      </div>
+    </div>
+    <a class="btn btn-gold btn-sm hdr-cta" href="https://t.me/vika297335" target="_blank" rel="noopener">Записаться онлайн</a>
+    <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mnav"><span></span></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Мобильное меню">
+  <a class="l" href="#services">Услуги</a>
+  <a class="l" href="#prices">Цены</a>
+  <a class="l" href="#about">О нас</a>
+  <a class="l" href="#reviews">Отзывы</a>
+  <a class="l" href="#gallery">Галерея</a>
+  <a class="l" href="#contacts">Контакты</a>
+  <a class="btn btn-gold" href="https://t.me/vika297335" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться онлайн</a>
+  <div class="ph">
+    <a href="tel:+78352242411"><b>24-24-11</b>ул. Л. Комсомола, 29</a>
+    <a href="tel:+78352386383"><b>386-383</b>ул. Б. Хмельницкого, 73</a>
+    <a href="tel:+78352212288"><b>21-22-88</b>ул. Университетская, 35А</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <canvas class="hexlights" data-mode="ceiling" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow rv">Автосервис в Чебоксарах</span>
+      <h1 class="split">Замена масла <em>бесплатно</em>, если масло куплено у&nbsp;нас</h1>
+      <p class="lead rv rv-d2">Три станции техобслуживания в Чебоксарах. Меняем масло в двигателе, АКПП, DSG, вариаторе и МКПП, меняем антифриз, протачиваем тормозные диски, делаем ремонт. Масла только оригинальные.</p>
+      <div class="hero-cta rv rv-d3">
+        <a class="btn btn-gold" href="https://t.me/vika297335" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Записаться на сервис</a>
+        <a class="btn btn-ghost" href="#prices">Смотреть цены<svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="hero-facts rv rv-d3">
+        <div><b>0 ₽</b><span>работа по замене масла в ДВС*</span></div>
+        <div><b data-to="200" data-suf="+">200+</b><span>видов масел в&nbsp;наличии</span></div>
+        <div><b data-to="3">3</b><span>станции в&nbsp;разных районах города</span></div>
+        <div><b>7/7</b><span>работаем без выходных</span></div>
+      </div>
+    </div>
+    <div class="hero-media rv rv-d2">
+      <div class="hero-photo"><span class="sheen"></span><img src="img/hero.webp" alt="Мастер «Масло Плюс» заливает оригинальное масло в двигатель" width="768" height="1024" fetchpriority="high"></div>
+      <div class="hero-tag">Только оригинальные масла</div>
+      <div class="hero-badge">
+        <i><svg><use href="#i-shield"/></svg></i>
+        <div><b>Сохраняем гарантию на ваш авто</b><span>Станции сертифицированы для гарантийных автомобилей</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="mq-track">
+  <span>Замена масла ДВС</span><i></i><span>АКПП</span><i></i><span>DSG</span><i></i><span>Вариатор CVT</span><i></i><span>МКПП</span><i></i><span>Haldex</span><i></i><span>Антифриз</span><i></i><span>Проточка дисков</span><i></i><span>Вибростенд</span><i></i><span>Ремонт ходовой</span><i></i>
+  <span>Замена масла ДВС</span><i></i><span>АКПП</span><i></i><span>DSG</span><i></i><span>Вариатор CVT</span><i></i><span>МКПП</span><i></i><span>Haldex</span><i></i><span>Антифриз</span><i></i><span>Проточка дисков</span><i></i><span>Вибростенд</span><i></i><span>Ремонт ходовой</span><i></i>
+</div></div>
+
+<!-- ============ PROMO ============ -->
+<section class="promo" aria-label="Акции и спецпредложения">
+  <div class="wrap promo-grid">
+    <article class="pcard vibro rv">
+      <img class="bg" src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.18-2.jpeg" alt="" loading="lazy">
+      <span class="ptag">Новая услуга, скидка 15%</span>
+      <h3>Экспресс-диагностика на вибростенде</h3>
+      <p>Быстро проверим подвеску. Станция на ул. Университетская, 35А, тел. 21-22-88.</p>
+      <div class="code">
+        <button type="button" data-copy="Масло297335" aria-label="Скопировать промокод Масло297335"><svg><use href="#i-copy"/></svg>Масло297335</button>
+        <small>промокод на скидку 15%</small>
+      </div>
+    </article>
+    <article class="pcard warranty rv rv-d1">
+      <span class="ptag">Экспресс-замена масла</span>
+      <h3>Сохраняем гарантию на ваш автомобиль</h3>
+      <p>Все станции «Масло Плюс» сертифицированы для обслуживания гарантийных автомобилей. Каждую замену записываем в фирменную сервисную книжку.</p>
+      <div class="code"><a class="btn btn-gold btn-sm" href="https://t.me/vika297335" target="_blank" rel="noopener">Записаться<svg><use href="#i-arrow"/></svg></a></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Услуги</span>
+        <h2 class="rv rv-d1">Что мы делаем</h2>
+        <p class="lead rv rv-d2">Выберите услугу, и мы подберём удобную станцию и время. Точную стоимость мастер назовёт до начала работ.</p>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Категории услуг">
+      <button class="tab" role="tab" aria-selected="true" data-f="all">Все услуги</button>
+      <button class="tab" role="tab" aria-selected="false" data-f="engine">Двигатель</button>
+      <button class="tab" role="tab" aria-selected="false" data-f="trans">Коробки и трансмиссия</button>
+      <button class="tab" role="tab" aria-selected="false" data-f="fluids">Жидкости и тормоза</button>
+      <button class="tab" role="tab" aria-selected="false" data-f="repair">Диагностика и ремонт</button>
+    </div>
+    <div class="svc-grid" id="svcGrid">
+      <article class="svc feature" data-c="engine">
+        <span class="flag">Бесплатно</span>
+        <div class="svc-ic"><svg><use href="#i-drop"/></svg></div>
+        <h3>Замена масла в двигателе</h3>
+        <p>Работа бесплатная, если масло и фильтр куплены в «Масло Плюс». Можно приехать со своими материалами.</p>
+        <div class="svc-foot">
+          <div class="price free">0 ₽<small>если масло купили у нас. Со своим маслом от&nbsp;700&nbsp;₽</small></div>
+          <button class="svc-link" data-svc="Замена масла в двигателе">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="engine">
+        <div class="svc-ic"><svg><use href="#i-flush"/></svg></div>
+        <h3>Полнообъёмная промывка двигателя</h3>
+        <p>Работа бесплатная при покупке материалов в «Масло Плюс».</p>
+        <div class="svc-foot">
+          <div class="price free">0 ₽<small>за работу. Со своими материалами 1&nbsp;000&nbsp;₽</small></div>
+          <button class="svc-link" data-svc="Промывка двигателя">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="trans">
+        <div class="svc-ic"><svg><use href="#i-gear"/></svg></div>
+        <h3>Замена масла в АКПП</h3>
+        <p>Частичная и аппаратная замена, со снятием поддона и фильтра или без. Делаем и спецработы: MB 9G-Tronic, VW Amarok, Mitsubishi Pajero, Hyundai Genesis.</p>
+        <div class="svc-foot">
+          <div class="price">от 1 000 ₽<small>частичная замена</small></div>
+          <button class="svc-link" data-svc="Замена масла в АКПП">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="trans">
+        <div class="svc-ic"><svg><use href="#i-gear"/></svg></div>
+        <h3>Роботизированная коробка (DSG)</h3>
+        <p>Меняем масло в механической части, гидравлической части (мехатроник) и с заменой фильтра DSG.</p>
+        <div class="svc-foot">
+          <div class="price">от 1 000 ₽<small>механическая часть</small></div>
+          <button class="svc-link" data-svc="Замена масла в DSG">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="trans">
+        <div class="svc-ic"><svg><use href="#i-gear"/></svg></div>
+        <h3>Вариатор (CVT)</h3>
+        <p>Частичная и аппаратная замена масла, со снятием поддона и фильтра или без.</p>
+        <div class="svc-foot">
+          <div class="price">от 1 000 ₽<small>частичная замена</small></div>
+          <button class="svc-link" data-svc="Замена масла в вариаторе (CVT)">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="trans">
+        <div class="svc-ic"><svg><use href="#i-gear"/></svg></div>
+        <h3>Механическая коробка (МКПП)</h3>
+        <p>Обычная замена масла или со снятием поддона.</p>
+        <div class="svc-foot">
+          <div class="price">от 500 ₽<small>с маслом «Масло Плюс»</small></div>
+          <button class="svc-link" data-svc="Замена масла в МКПП">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="trans">
+        <div class="svc-ic"><svg><use href="#i-axle"/></svg></div>
+        <h3>Раздатка, дифференциалы, Haldex</h3>
+        <p>Меняем масло в раздаточных коробках и дифференциалах, в Haldex и DCTF. Раздатку BMW xDrive обслуживаем как спецработу.</p>
+        <div class="svc-foot">
+          <div class="price">от 500 ₽<small>за узел</small></div>
+          <button class="svc-link" data-svc="Замена масла в трансмиссии">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="fluids">
+        <div class="svc-ic"><svg><use href="#i-thermo"/></svg></div>
+        <h3>Аппаратная замена антифриза и тормозной жидкости</h3>
+        <p>Меняем антифриз полностью, под давлением. Аппарат вытесняет старую жидкость новой, это защищает двигатель от перегрева и коррозии.</p>
+        <div class="svc-foot">
+          <div class="price ask">Цену уточняйте</div>
+          <button class="svc-link" data-svc="Замена антифриза / тормозной жидкости">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="fluids">
+        <div class="svc-ic"><svg><use href="#i-disc"/></svg></div>
+        <h3>Проточка тормозных дисков</h3>
+        <p>Снимаем поверхностные дефекты с тормозного диска. После проточки диск выглядит как новый.</p>
+        <div class="svc-foot">
+          <div class="price ask">Цену уточняйте</div>
+          <button class="svc-link" data-svc="Проточка тормозных дисков">Записаться</button>
+        </div>
+      </article>
+      <article class="svc" data-c="repair">
+        <span class="flag">−15%</span>
+        <div class="svc-ic"><svg><use href="#i-wave"/></svg></div>
+        <h3>Экспресс-диагностика на вибростенде</h3>
+        <p>Быстрая проверка подвески. Только на станции Университетская, 35А. Скидка 15% по промокоду Масло297335.</p>
+        <div class="svc-foot">
+          <div class="price ask">Цену уточняйте</div>
+          <button class="svc-link" data-svc="Диагностика на вибростенде" data-branch="Университетская, 35А">Записаться</button>
+        </div>
+      </article>
+      <article class="svc svc-wide" data-c="repair">
+        <div class="svc-ic"><svg><use href="#i-wrench"/></svg></div>
+        <h3>Ремонт автомобиля</h3>
+        <ul class="cols">
+          <li>Ходовая часть и подвеска</li>
+          <li>Тормозная система</li>
+          <li>Рулевое управление</li>
+          <li>Система охлаждения</li>
+          <li>Топливная система</li>
+          <li>Двигатель, включая капремонт</li>
+          <li>Трансмиссия и сцепление</li>
+          <li>Замена ремня и цепи ГРМ</li>
+        </ul>
+        <div class="svc-foot">
+          <div class="price ask">Стоимость после диагностики</div>
+          <button class="svc-link" data-svc="Ремонт">Записаться</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICES ============ -->
+<section class="sec prices" id="prices">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Цены</span>
+        <h2 class="rv rv-d1">Готовые наборы ТО</h2>
+        <p class="lead rv rv-d2">Масло, фильтр и работа по фиксированной цене. Выберите вариант «Бюджет» или «Премиум».</p>
+      </div>
+    </div>
+
+    <div class="kits">
+      <article class="kit rv" data-kit='{"budget":{"oil":"LUKOIL 5W-40 Genesis Armortech","filter":"SCT","price":"4 650"},"premium":{"oil":"Shell 5W-40 Ultra","filter":"MANN","price":"6 400"}}'>
+        <div class="kit-top"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Volkswagen_Polo_VI_1.0_TSI_R-Line_%282020%29_%2852712909146%29.jpg?width=900" alt="Volkswagen Polo" width="96" height="64" loading="lazy"><div><b>Volkswagen Polo</b><span>1.6, 110 л.с., объём 4,2 л</span></div></div>
+        <div class="seg" role="group" aria-label="Вариант набора"><button type="button" aria-pressed="true" data-v="budget">Бюджет</button><button type="button" aria-pressed="false" data-v="premium">Премиум</button></div>
+        <dl><div><dt>Масло</dt><dd data-f="oil"></dd></div><div><dt>Фильтр масляный</dt><dd data-f="filter"></dd></div><div><dt>Замена масла в ДВС</dt><dd class="free">Бесплатно</dd></div></dl>
+        <div class="kit-foot"><div class="kit-price"><small>Итого</small><span data-f="price"></span> ₽</div><button class="btn btn-gold btn-sm" data-svc="Набор ТО Volkswagen Polo">Записаться</button></div>
+      </article>
+      <article class="kit rv rv-d1" data-kit='{"budget":{"oil":"G-Energy 5W-30 Far East","filter":"MANN","price":"3 800"},"premium":{"oil":"Shell 5W-30 Ultra","filter":"MANN","price":"5 100"}}'>
+        <div class="kit-top"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kia_Rio_Sedan_-_front.jpg?width=900" alt="KIA Rio" width="96" height="64" loading="lazy"><div><b>KIA Rio</b><span>1.4 / 1.6, объём 3,5 л</span></div></div>
+        <div class="seg" role="group" aria-label="Вариант набора"><button type="button" aria-pressed="true" data-v="budget">Бюджет</button><button type="button" aria-pressed="false" data-v="premium">Премиум</button></div>
+        <dl><div><dt>Масло</dt><dd data-f="oil"></dd></div><div><dt>Фильтр масляный</dt><dd data-f="filter"></dd></div><div><dt>Замена масла в ДВС</dt><dd class="free">Бесплатно</dd></div></dl>
+        <div class="kit-foot"><div class="kit-price"><small>Итого</small><span data-f="price"></span> ₽</div><button class="btn btn-gold btn-sm" data-svc="Набор ТО KIA Rio">Записаться</button></div>
+      </article>
+      <article class="kit rv rv-d2" data-kit='{"budget":{"oil":"G-Energy 5W-40 Active","filter":"Green Filter","price":"2 900"},"premium":{"oil":"Shell 5W-40 HX8","filter":"MANN","price":"4 000"}}'>
+        <div class="kit-top"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/2020_Lada_Granta_219110_brown_front.jpg?width=900" alt="Lada Granta" width="96" height="64" loading="lazy"><div><b>Lada, 8 клапанов</b><span>объём 3,0 л</span></div></div>
+        <div class="seg" role="group" aria-label="Вариант набора"><button type="button" aria-pressed="true" data-v="budget">Бюджет</button><button type="button" aria-pressed="false" data-v="premium">Премиум</button></div>
+        <dl><div><dt>Масло</dt><dd data-f="oil"></dd></div><div><dt>Фильтр масляный</dt><dd data-f="filter"></dd></div><div><dt>Замена масла в ДВС</dt><dd class="free">Бесплатно</dd></div></dl>
+        <div class="kit-foot"><div class="kit-price"><small>Итого</small><span data-f="price"></span> ₽</div><button class="btn btn-gold btn-sm" data-svc="Набор ТО Lada 8 кл.">Записаться</button></div>
+      </article>
+      <div class="kit-note rv">
+        <div><b>Не нашли свою марку?</b><p>В наличии больше двухсот видов масел. Подберём масло и фильтр под ваш автомобиль.</p></div>
+        <a class="btn btn-ghost btn-sm" href="#lead" data-svc="Подбор масла">Подобрать масло<svg><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-bottom:28px">
+      <div>
+        <h2 class="rv" style="font-size:clamp(24px,3.4vw,38px)">Прайс на работы</h2>
+        <p class="lead rv rv-d1">Если материалы куплены у нас, работа обходится дешевле.</p>
+      </div>
+    </div>
+
+    <div class="ptable-wrap">
+      <aside class="plegend rv">
+        <b>Как читать прайс</b>
+        <p><span class="dot" style="background:var(--gold)"></span>Материалы «Масло Плюс»: масло и расходники из нашего ассортимента.</p>
+        <p><span class="dot" style="background:var(--text)"></span>Свои материалы: вы привозите масло и расходники с собой.</p>
+        <p style="color:var(--dim);font-size:13px">Цены указаны за работу, материалы оплачиваются отдельно. «От» значит минимальная цена. Точную мастер скажет после осмотра.</p>
+      </aside>
+      <div class="rv rv-d1">
+        <details class="pgroup" open>
+          <summary>Двигатель (ДВС)<span class="from">от 0 ₽</span><span class="chev"><svg><use href="#i-chev"/></svg></span></summary>
+          <table class="ptable">
+            <thead><tr><th>Работа</th><th>Наши материалы</th><th>Свои</th></tr></thead>
+            <tbody>
+              <tr><td>Замена масла в ДВС</td><td><span class="free">Бесплатно</span></td><td>от 700 ₽</td></tr>
+              <tr><td>Полнообъёмная промывка ДВС</td><td><span class="free">Бесплатно</span></td><td>1 000 ₽</td></tr>
+            </tbody>
+          </table>
+        </details>
+        <details class="pgroup">
+          <summary>АКПП<span class="from">от 1 000 ₽</span><span class="chev"><svg><use href="#i-chev"/></svg></span></summary>
+          <table class="ptable">
+            <thead><tr><th>Работа</th><th>Наши материалы</th><th>Свои</th></tr></thead>
+            <tbody>
+              <tr><td>Частичная замена, без снятия поддона/фильтра</td><td>от 1 000 ₽</td><td>от 1 500 ₽</td></tr>
+              <tr><td>Частичная замена, со снятием поддона/фильтра</td><td>от 2 000 ₽</td><td>от 2 500 ₽</td></tr>
+              <tr><td>Аппаратная замена</td><td>от 2 000 ₽</td><td>от 3 000 ₽</td></tr>
+              <tr><td>Аппаратная замена, со снятием поддона/фильтра</td><td>от 3 000 ₽</td><td>от 4 000 ₽</td></tr>
+              <tr><td>Спецработы: MB 9G-Tronic, VW Amarok, Mitsubishi Pajero, Hyundai Genesis</td><td>от 3 000 ₽</td><td>от 4 000 ₽</td></tr>
+            </tbody>
+          </table>
+        </details>
+        <details class="pgroup">
+          <summary>Роботизированная КПП (DSG)<span class="from">от 1 000 ₽</span><span class="chev"><svg><use href="#i-chev"/></svg></span></summary>
+          <table class="ptable">
+            <thead><tr><th>Работа</th><th>Наши материалы</th><th>Свои</th></tr></thead>
+            <tbody>
+              <tr><td>Без замены фильтра DSG (механическая часть)</td><td>от 1 000 ₽</td><td>от 2 000 ₽</td></tr>
+              <tr><td>Гидравлическая часть (мехатроник) DSG</td><td>от 2 000 ₽</td><td>от 2 500 ₽</td></tr>
+              <tr><td>С заменой фильтра DSG</td><td>от 2 500 ₽</td><td>от 3 500 ₽</td></tr>
+            </tbody>
+          </table>
+        </details>
+        <details class="pgroup">
+          <summary>Вариатор (CVT)<span class="from">от 1 000 ₽</span><span class="chev"><svg><use href="#i-chev"/></svg></span></summary>
+          <table class="ptable">
+            <thead><tr><th>Работа</th><th>Наши материалы</th><th>Свои</th></tr></thead>
+            <tbody>
+              <tr><td>Частичная замена, без снятия поддона/фильтра</td><td>от 1 000 ₽</td><td>от 1 500 ₽</td></tr>
+              <tr><td>Частичная замена, со снятием поддона/фильтра</td><td>от 2 000 ₽</td><td>от 3 000 ₽</td></tr>
+              <tr><td>Аппаратная замена</td><td>от 2 500 ₽</td><td>от 3 500 ₽</td></tr>
+              <tr><td>Аппаратная замена, со снятием поддона/фильтра</td><td>от 3 500 ₽</td><td>от 4 000 ₽</td></tr>
+            </tbody>
+          </table>
+        </details>
+        <details class="pgroup">
+          <summary>МКПП<span class="from">от 500 ₽</span><span class="chev"><svg><use href="#i-chev"/></svg></span></summary>
+          <table class="ptable">
+            <thead><tr><th>Работа</th><th>Наши материалы</th><th>Свои</th></tr></thead>
+            <tbody>
+              <tr><td>Замена масла в МКПП</td><td>от 500 ₽</td><td>от 700 ₽</td></tr>
+              <tr><td>Замена масла со снятием поддона</td><td>от 2 000 ₽</td><td>от 2 500 ₽</td></tr>
+            </tbody>
+          </table>
+        </details>
+        <details class="pgroup">
+          <summary>Раздатка и дифференциалы<span class="from">от 500 ₽</span><span class="chev"><svg><use href="#i-chev"/></svg></span></summary>
+          <table class="ptable">
+            <thead><tr><th>Работа</th><th>Наши материалы</th><th>Свои</th></tr></thead>
+            <tbody>
+              <tr><td>Раздатка, дифференциалы (за узел)</td><td>от 500 ₽</td><td>от 700 ₽</td></tr>
+              <tr><td>Раздаточная коробка BMW xDrive (спецработы)</td><td>от 2 000 ₽</td><td>от 3 000 ₽</td></tr>
+            </tbody>
+          </table>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Почему «Масло Плюс»</span>
+        <h2 class="rv rv-d1">Почему едут к нам</h2>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why rv"><div class="n">01</div><h3>Только оригинальные масла</h3><p>Продаём и заливаем только оригинальную продукцию.</p></div>
+      <div class="why rv rv-d1"><div class="n">02</div><h3>Замена масла за 0 ₽</h3><p>Если масло и фильтр куплены у нас, работа по замене масла в двигателе бесплатная.</p></div>
+      <div class="why rv rv-d2"><div class="n">03</div><h3>200+ видов масел</h3><p>Подберём масло под любой автомобиль прямо на станции, ждать заказа не нужно.</p></div>
+      <div class="why rv"><div class="n">04</div><h3>Гарантия сохраняется</h3><p>Все станции сертифицированы для обслуживания гарантийных автомобилей.</p></div>
+      <div class="why rv rv-d1"><div class="n">05</div><h3>Аппаратная замена</h3><p>Меняем масло в АКПП и вариаторе, антифриз и тормозную жидкость на специальном оборудовании.</p></div>
+      <div class="why rv rv-d2"><div class="n">06</div><h3>3 станции, без выходных</h3><p>Ленинского Комсомола, Хмельницкого и Университетская. Пн-Пт 9:00-19:00, Сб-Вс 9:00-17:00.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="sec" id="about" style="padding-top:0">
+  <div class="wrap about-grid">
+    <div class="about-mosaic rv">
+      <img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.17.jpeg" alt="Торговый зал «Масло Плюс» с бочками масла" loading="lazy">
+      <img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.18.jpeg" alt="Ремонт двигателя на станции" loading="lazy">
+      <img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.17.jpeg" alt="Ассортимент масел на полках" loading="lazy">
+    </div>
+    <div>
+      <span class="eyebrow rv">О компании</span>
+      <h2 class="rv rv-d1" style="margin-top:16px">Сеть станций техобслуживания в&nbsp;Чебоксарах</h2>
+      <p class="lead rv rv-d2" style="margin-top:20px">В «Масло Плюс» магазин масел и сервис работают под одной крышей. Выбираете масло из ассортимента, и мастер сразу его заливает. Отдельно искать магазин и сервис не нужно.</p>
+      <ul class="about-list rv rv-d3">
+        <li><svg><use href="#i-check"/></svg><span>Быстро меняем масло в двигателе, АКПП, МКПП, DSG, CVT, Haldex и DCTF.</span></li>
+        <li><svg><use href="#i-check"/></svg><span>Выдаём сервисную книжку, в ней записана дата следующей замены.</span></li>
+        <li><svg><use href="#i-check"/></svg><span>Ремонтируем ходовую, тормоза, ГРМ, сцепление, делаем капремонт двигателя.</span></li>
+        <li><svg><use href="#i-check"/></svg><span>На Университетской, 35А есть вибростенд для быстрой диагностики подвески.</span></li>
+      </ul>
+      <div class="hero-cta rv rv-d3" style="margin-top:32px">
+        <a class="btn btn-gold" href="#lead">Получить консультацию</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Как мы работаем</span>
+        <h2 class="rv rv-d1">Как проходит обслуживание</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="k">ШАГ 01</span><h3>Заявка</h3><p>Онлайн-запись, звонок на станцию или форма на сайте.</p></div>
+      <div class="step rv rv-d1"><span class="k">ШАГ 02</span><h3>Осмотр и подбор</h3><p>Смотрим автомобиль и подбираем масло и расходники.</p></div>
+      <div class="step rv rv-d2"><span class="k">ШАГ 03</span><h3>Согласование</h3><p>Называем стоимость и начинаем только после вашего согласия.</p></div>
+      <div class="step rv rv-d3"><span class="k">ШАГ 04</span><h3>Работы</h3><p>Выполняем замену или ремонт на оборудовании станции.</p></div>
+      <div class="step rv rv-d3"><span class="k">ШАГ 05</span><h3>Выдача авто</h3><p>Отдаём автомобиль и отмечаем следующую замену в сервисной книжке.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="sec prices" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Отзывы</span>
+        <h2 class="rv rv-d1">Что говорят клиенты</h2>
+        <p class="lead rv rv-d2">Отзывы с Яндекс Карт по каждой из трёх станций. Были у нас? Оставьте свой, нам это правда важно.</p>
+      </div>
+    </div>
+    <div class="rev-wrap">
+      <div class="rev-side rv" role="tablist" aria-label="Станции">
+        <button class="rev-btn" role="tab" aria-selected="true" data-rev="214501904406"><i>1</i><span><b>ул. Л. Комсомола, 29</b><span>Отзывы на Яндекс Картах</span></span></button>
+        <button class="rev-btn" role="tab" aria-selected="false" data-rev="76666692601"><i>2</i><span><b>ул. Б. Хмельницкого, 73</b><span>Отзывы на Яндекс Картах</span></span></button>
+        <button class="rev-btn" role="tab" aria-selected="false" data-rev="89882408027"><i>3</i><span><b>ул. Университетская, 35А</b><span>Отзывы на Яндекс Картах</span></span></button>
+        <div class="rev-links">
+          <a class="chip" id="revYa" href="https://yandex.ru/maps/org/maslo_plyus/214501904406/" target="_blank" rel="noopener"><svg><use href="#i-star"/></svg>Оставить отзыв в Яндексе</a>
+        </div>
+      </div>
+      <div class="rev-frame rv rv-d1">
+        <div class="ph">Загружаем отзывы…</div>
+        <iframe id="revFrame" title="Отзывы о «Масло Плюс» на Яндекс Картах" loading="lazy" data-src="https://yandex.ru/maps-reviews-widget/214501904406?comments"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Галерея</span>
+        <h2 class="rv rv-d1">Наши станции и работы</h2>
+      </div>
+      <a class="btn btn-ghost btn-sm rv" href="http://t.me/masloplus" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Больше в Telegram</a>
+    </div>
+    <div class="gal" id="gal">
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.21-1.jpeg" alt="Работа с Volkswagen" loading="lazy"><figcaption>Профессиональный уход за автомобилем</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.20.jpeg" alt="Фирменная продукция" loading="lazy"><figcaption>Сервис, которому доверяют</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.23-1.jpeg" alt="Салон автомобиля после обслуживания" loading="lazy"><figcaption>Внимание к каждой детали</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.23.jpeg" alt="Станция «Масло Плюс»" loading="lazy"><figcaption>Премиальный подход к обслуживанию</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.22.jpeg" alt="Замена масла" loading="lazy"><figcaption>Точная работа и проверенные материалы</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.22-3.jpeg" alt="Автомобиль в сервисе" loading="lazy"><figcaption>Забота об автомобиле на каждом этапе</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.22-2.jpeg" alt="Интерьер и оборудование" loading="lazy"><figcaption>Современное оборудование и опыт</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.22-1.jpeg" alt="Ассортимент масел" loading="lazy"><figcaption>Качественные материалы для вашего автомобиля</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.21.jpeg" alt="Команда «Масло Плюс»" loading="lazy"><figcaption>Команда профессионалов</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.21-3.jpeg" alt="Работа с Mercedes-Benz" loading="lazy"><figcaption>Сервис без лишней суеты</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.21-2.jpeg" alt="Замена масла и фильтров" loading="lazy"><figcaption>Контроль качества на каждом этапе</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.18-2.jpeg" alt="Проверка и замена масла" loading="lazy"><figcaption>Работа по стандартам профессионального сервиса</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.18.jpeg" alt="Диагностика автомобиля" loading="lazy"><figcaption>Точная диагностика и грамотное обслуживание</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.19-1.jpeg" alt="Станция и оборудование" loading="lazy"><figcaption>Профессиональное оборудование</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.19-2.jpeg" alt="Работа с Lexus" loading="lazy"><figcaption>Индивидуальный подход к каждому автомобилю</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.19.jpeg" alt="Аппаратная замена жидкостей" loading="lazy"><figcaption>Аккуратность в каждой работе</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.20-1.jpeg" alt="Масло Castrol" loading="lazy"><figcaption>Только проверенные решения</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.20-2.jpeg" alt="Автомобиль Mercedes-Benz" loading="lazy"><figcaption>Сервис для автомобилей премиум-класса</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.18-1.jpeg" alt="Ассортимент продукции" loading="lazy"><figcaption>Большой выбор качественных материалов</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.17.jpeg" alt="Торговый зал" loading="lazy"><figcaption>Комфортное пространство для клиентов</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.17-2.jpeg" alt="Масла и автотовары" loading="lazy"><figcaption>Всё необходимое для обслуживания</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.00.jpeg" alt="Сотрудники сервиса" loading="lazy"><figcaption>Опыт, которому можно доверять</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.01.jpeg" alt="BMW в сервисе" loading="lazy"><figcaption>Работа с автомобилями разных марок</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.09.jpeg" alt="Фирменный стиль" loading="lazy"><figcaption>Фирменный подход к каждому клиенту</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.58.jpeg" alt="Внешний вид станции" loading="lazy"><figcaption>Современный сервис «Масло Плюс»</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.17-1.jpeg" alt="Автомобиль у сервиса" loading="lazy"><figcaption>Автомобиль в надёжных руках</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.15.jpeg" alt="Станция «Масло Плюс»" loading="lazy"><figcaption>Профессиональное обслуживание</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.14.jpeg" alt="Работа с BMW" loading="lazy"><figcaption>Экспертный подход к автомобилю</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.57.jpeg" alt="Станция ночью" loading="lazy"><figcaption>Сервис, где важен результат</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.59.jpeg" alt="Фирменная вывеска" loading="lazy"><figcaption>Качество, которое видно в деталях</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.12.jpeg" alt="BMW у станции" loading="lazy"><figcaption>Надёжность в каждой работе</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.56.jpeg" alt="Honda в сервисе" loading="lazy"><figcaption>Бережное обслуживание автомобиля</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.56-1.jpeg" alt="Audi в сервисе" loading="lazy"><figcaption>Профессиональная забота о вашем автомобиле</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.11.jpeg" alt="Продукция и фильтры" loading="lazy"><figcaption>Качественные материалы и фильтры</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.33.10.jpeg" alt="Автомобиль в боксе" loading="lazy"><figcaption>Работа аккуратно и точно</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.55-1.jpeg" alt="Оборудование для замены масла" loading="lazy"><figcaption>Современное оснащение сервиса</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.54.jpeg" alt="Сертификаты и квалификация" loading="lazy"><figcaption>Сертифицированный подход к обслуживанию</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.54-1.jpeg" alt="Станция вечером" loading="lazy"><figcaption>Комфорт и качество сервиса</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.53-2.jpeg" alt="Автомобили клиентов" loading="lazy"><figcaption>Автомобили клиентов в надёжных руках</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.52-2.jpeg" alt="Mercedes в сервисе" loading="lazy"><figcaption>Профессиональное обслуживание без компромиссов</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.22.jpeg" alt="Замена масла" loading="lazy"><figcaption>Замена и обслуживание с контролем качества</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.19.jpeg" alt="Range Rover в сервисе" loading="lazy"><figcaption>Комплексный подход к автомобилю</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.18.jpeg" alt="Внешний вид станции" loading="lazy"><figcaption>Сервис, на который можно рассчитывать</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.29.jpeg" alt="Volkswagen в сервисе" loading="lazy"><figcaption>Проверенные материалы и технологии</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.30-1.jpeg" alt="Аппаратная замена масла" loading="lazy"><figcaption>Точная работа специалистов</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.28.jpeg" alt="BMW в сервисе" loading="lazy"><figcaption>Оборудование для профессионального сервиса</figcaption></button>
+      <button type="button"><img src="https://masloplus21.ru/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-24-at-14.32.26.jpeg" alt="Оборудование станции" loading="lazy"><figcaption>Качество обслуживания — в деталях</figcaption></button>
+    </div>
+    <button class="btn btn-ghost gal-more" type="button" id="galMore">Показать все фото</button>
+  </div>
+</section>
+
+<!-- ============ CTA / FORM ============ -->
+<section class="sec" id="lead" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta rv">
+      <canvas class="hexlights" data-mode="flat" aria-hidden="true"></canvas>
+      <div>
+        <span class="eyebrow" style="color:#fff">Запись на сервис</span>
+        <h2 style="margin-top:16px">Запишитесь на замену масла или ремонт</h2>
+        <p class="lead">Для записи на сервис напишите нам в Telegram — @vika297335.</p>
+        <div class="cta-alt">
+          <a class="btn btn-gold" href="https://t.me/vika297335" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Запись @vika297335</a>
+          <a class="btn btn-ghost" href="https://telegram.me/MasloPlus35" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Написать в Telegram</a>
+        </div>
+      </div>
+      <div class="form booking-contact">
+        <div class="booking-contact-label">Запись</div>
+        <p class="booking-contact-text">Для записи на сервис напишите нам в Telegram</p>
+        <a class="btn btn-gold booking-telegram" href="https://t.me/vika297335" target="_blank" rel="noopener">
+          <svg><use href="#i-tg"/></svg>@vika297335
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTS ============ -->
+<section class="sec" id="contacts" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow rv">Контакты</span>
+        <h2 class="rv rv-d1">Три станции в Чебоксарах</h2>
+      </div>
+    </div>
+    <div class="branches">
+      <article class="br rv">
+        <div class="br-h"><div><h3>ул. Л. Комсомола, 29</h3><span>г. Чебоксары</span></div></div>
+        <div class="br-rows">
+          <a href="tel:+78352242411"><svg><use href="#i-phone"/></svg><span>24-24-11</span></a>
+          <a href="tel:+79093001060"><svg><use href="#i-phone"/></svg><span>+7 909 300-10-60</span></a>
+          <div><svg><use href="#i-clock"/></svg><span>Пн-Пт 9:00-19:00<br><small>Сб-Вс 9:00-17:00</small></span></div>
+        </div>
+        <div class="br-act">
+          <a class="chip" href="https://yandex.ru/maps/org/maslo_plyus/214501904406/" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Яндекс Карты</a>
+          <a class="chip" href="https://2gis.ru/cheboksary/branches/70000001017325084/firm/70000001017325085/47.294516%2C56.108767?m=47.294516%2C56.108767%2F15.79" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>2ГИС</a>
+        </div>
+      </article>
+      <article class="br rv rv-d1">
+        <div class="br-h"><div><h3>ул. Б. Хмельницкого, 73</h3><span>г. Чебоксары</span></div></div>
+        <div class="br-rows">
+          <a href="tel:+78352386383"><svg><use href="#i-phone"/></svg><span>386-383</span></a>
+          <a href="tel:+79276686383"><svg><use href="#i-phone"/></svg><span>+7 927 668-63-83</span></a>
+          <div><svg><use href="#i-clock"/></svg><span>Пн-Пт 9:00-19:00<br><small>Сб-Вс 9:00-17:00</small></span></div>
+        </div>
+        <div class="br-act">
+          <a class="chip" href="https://yandex.ru/maps/org/maslo_plyus/76666692601/" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Яндекс Карты</a>
+          <a class="chip" href="https://2gis.ru/cheboksary/branches/70000001017325084/firm/70000001024154989/47.226973%2C56.121317?m=47.226973%2C56.121317%2F15.79" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>2ГИС</a>
+        </div>
+      </article>
+      <article class="br rv rv-d2">
+        <div class="br-h"><div><h3>ул. Университетская, 35А</h3><span>г. Чебоксары</span></div><span class="br-badge">Вибростенд</span></div>
+        <div class="br-rows">
+          <a href="tel:+78352212288"><svg><use href="#i-phone"/></svg><span>21-22-88</span></a>
+          <a href="tel:+79093001003"><svg><use href="#i-phone"/></svg><span>+7 909 300-10-03</span></a>
+          <div><svg><use href="#i-clock"/></svg><span>Пн-Пт 9:00-19:00<br><small>Сб-Вс 9:00-17:00</small></span></div>
+        </div>
+        <div class="br-act">
+          <a class="chip" href="https://yandex.ru/maps/org/maslo_plyus/89882408027/" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Яндекс Карты</a>
+          <a class="chip" href="https://2gis.ru/cheboksary/branches/70000001017325084/firm/70000001099177473/47.164752%2C56.134893?m=47.164752%2C56.134893%2F15.79" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>2ГИС</a>
+          <a class="chip" href="https://telegram.me/MasloPlus35" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg>Telegram</a>
+        </div>
+      </article>
+    </div>
+    <div class="map rv">
+      <iframe title="Станции «Масло Плюс» на карте Чебоксар" loading="lazy" src="https://yandex.ru/map-widget/v1/?ll=47.2296%2C56.1218&z=12&pt=47.294516%2C56.108767%2Cpm2blm~47.226973%2C56.121317%2Cpm2blm~47.164752%2C56.134893%2Cpm2blm"></iframe>
+    </div>
+    <div class="socials rv">
+      <span>Мы в соцсетях:</span>
+      <a class="soc" href="https://vk.com/masloplus21" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg><use href="#i-vk"/></svg></a>
+      <a class="soc" href="http://t.me/masloplus" target="_blank" rel="noopener" aria-label="Telegram-канал"><svg><use href="#i-tg"/></svg></a>
+      <a class="soc" href="https://www.instagram.com/masloplus21" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <a href="#top" class="logo mp-header-logo" aria-label="Масло Плюс"><img class="mp-brand-logo" src="img/logo.webp" alt="Масло Плюс"></a>
+        <p style="margin:0;max-width:300px">Замена масла и автосервис в Чебоксарах. Только оригинальные масла.</p>
+        <div class="socials" style="margin-top:20px">
+          <a class="soc" href="https://vk.com/masloplus21" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg><use href="#i-vk"/></svg></a>
+          <a class="soc" href="http://t.me/masloplus" target="_blank" rel="noopener" aria-label="Telegram"><svg><use href="#i-tg"/></svg></a>
+          <a class="soc" href="https://www.instagram.com/masloplus21" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <ul><li><a href="#services">Услуги</a></li><li><a href="#prices">Цены</a></li><li><a href="#about">О компании</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#gallery">Галерея</a></li><li><a href="#contacts">Контакты</a></li></ul>
+      </div>
+      <div>
+        <h4>Услуги</h4>
+        <ul><li><a href="#services">Замена масла ДВС</a></li><li><a href="#services">АКПП, DSG, CVT, МКПП</a></li><li><a href="#services">Антифриз и тормозная жидкость</a></li><li><a href="#services">Проточка дисков</a></li><li><a href="#services">Вибростенд</a></li><li><a href="#services">Ремонт</a></li></ul>
+      </div>
+      <div>
+        <h4>Станции</h4>
+        <ul>
+          <li>ул. Л. Комсомола, 29, <a href="tel:+78352242411">24-24-11</a></li>
+          <li>ул. Б. Хмельницкого, 73, <a href="tel:+78352386383">386-383</a></li>
+          <li>ул. Университетская, 35А, <a href="tel:+78352212288">21-22-88</a></li>
+          <li style="margin-top:6px">Пн-Пт 9:00-19:00<br>Сб-Вс 9:00-17:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bot"><span>© Масло Плюс, Чебоксары</span><span>Цены на сайте не являются публичной офертой</span></div>
+    <div class="credits"><small>Telegram</small><a href="https://t.me/lapinauthor" target="_blank" rel="noopener">@lapinauthor</a> &amp; <a href="https://t.me/MK8biz" target="_blank" rel="noopener">@MK8biz</a></div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a class="btn btn-ghost" href="#contacts"><svg><use href="#i-phone"/></svg>Позвонить</a>
+  <a class="btn btn-gold" href="https://t.me/vika297335" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Запись @vika297335</a>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+  <button class="lb-x" type="button" aria-label="Закрыть"><svg><use href="#i-x"/></svg></button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Предыдущее фото"><svg><use href="#i-left"/></svg></button>
+  <figure style="margin:0"><img alt=""><p></p></figure>
+  <button class="lb-nav lb-next" type="button" aria-label="Следующее фото"><svg><use href="#i-right"/></svg></button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  // Куда отправлять заявки с формы (например, webhook бота Telegram или CRM).
+  // Пока пусто, форма просто показывает подтверждение.
+  const FORM_ENDPOINT = '';
+
+  // header + mobile bar
+  const hdr = $('#hdr'), mbar = $('#mbar');
+  const onScroll = () => {
+    const y = scrollY;
+    hdr.classList.toggle('scrolled', y > 20);
+    mbar.classList.toggle('show', y > 500);
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // mobile menu
+  const burger = $('.burger');
+  burger.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  $$('#mnav a').forEach(a => a.addEventListener('click', () => {
+    document.body.classList.remove('menu-open');
+    burger.setAttribute('aria-expanded', false);
+    document.body.style.overflow = '';
+  }));
+
+  // reveal
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -8% 0px' });
+  $$('.rv').forEach(el => io.observe(el));
+
+  // toast
+  const toast = $('#toast'); let tt;
+  const say = t => { toast.textContent = t; toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('show'), 2200); };
+
+  // promo code copy
+  $$('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); say('Промокод скопирован'); }
+    catch { say('Промокод: ' + b.dataset.copy); }
+  }));
+
+  // service filters
+  const tabs = $$('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.setAttribute('aria-selected', x === t));
+    const f = t.dataset.f;
+    $$('#svcGrid .svc').forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.c !== f));
+  }));
+
+  // TO kits
+  $$('.kit').forEach(kit => {
+    const data = JSON.parse(kit.dataset.kit);
+    const render = v => {
+      Object.entries(data[v]).forEach(([k, val]) => { const el = kit.querySelector(`[data-f="${k}"]`); if (el) el.textContent = val; });
+      kit.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v));
+    };
+    kit.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => render(b.dataset.v)));
+    render('budget');
+  });
+
+  // "Записаться" on a service -> Telegram
+  $$('[data-svc]').forEach(b => b.addEventListener('click', e => {
+    e.preventDefault();
+    const service = b.dataset.svc || 'сервис';
+    const telegramUrl = 'https://t.me/vika297335';
+    say('Запись: ' + service);
+    window.open(telegramUrl, '_blank', 'noopener');
+  }));
+
+  // reviews (lazy load iframe)
+  const frame = $('#revFrame'), ya = $('#revYa');
+  const loadRev = id => {
+    frame.src = `https://yandex.ru/maps-reviews-widget/${id}?comments`;
+    ya.href = `https://yandex.ru/maps/org/maslo_plyus/${id}/`;
+  };
+  new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { frame.src = frame.dataset.src; o.disconnect(); } }, { rootMargin: '400px' }).observe(frame);
+  $$('.rev-btn').forEach(b => b.addEventListener('click', () => {
+    $$('.rev-btn').forEach(x => x.setAttribute('aria-selected', x === b));
+    loadRev(b.dataset.rev);
+  }));
+
+  // lightbox
+  const lb = $('#lb'), lbImg = $('#lb img'), lbCap = $('#lb p');
+  const items = $$('#gal button'); let idx = 0;
+  const galMore = $('#galMore');
+  galMore.textContent = `Показать все фото (${items.length})`;
+  galMore.addEventListener('click', () => { $('#gal').classList.add('all'); galMore.remove(); });
+  const show = i => { idx = (i + items.length) % items.length; const im = items[idx].querySelector('img'); lbImg.src = im.src; lbImg.alt = im.alt; lbCap.textContent = items[idx].querySelector('figcaption').textContent; };
+  const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; items[idx].focus(); };
+  items.forEach((b, i) => b.addEventListener('click', () => { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; $('.lb-x').focus(); }));
+  $('.lb-x').addEventListener('click', close);
+  $('.lb-prev').addEventListener('click', () => show(idx - 1));
+  $('.lb-next').addEventListener('click', () => show(idx + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // ---------- заставка ----------
+  const INTRO_MS = document.documentElement.classList.contains('intro') ? 1500 : 0;
+  const intro = $('#intro');
+  if (INTRO_MS) {
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => { intro.classList.add('out'); document.body.style.overflow = ''; }, INTRO_MS);
+    setTimeout(() => intro.remove(), INTRO_MS + 900);
+  } else intro.remove();
+
+  // ---------- LED hex lights (как шестигранные светильники на потолке станций) ----------
+  const S3 = Math.sqrt(3), PI3 = Math.PI / 3;
+  const hash = (a, b, c) => {
+    let h = (Math.imul(a | 0, 374761393) + Math.imul(b | 0, 668265263) + Math.imul(c | 0, 1440662683)) | 0;
+    h = Math.imul(h ^ (h >>> 13), 1274126177);
+    return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+  };
+
+  function HexLights(cv) {
+    const ctx = cv.getContext('2d');
+    const mode = cv.dataset.mode;
+    const host = cv.parentElement;
+    let W = 0, H = 0, raf = 0, visible = false, started = false, start = 0;
+    const ptr = { x: 0, y: 0, sx: 0, sy: 0, nx: 0, snx: 0, on: false, a: 0 };
+    // в шапке лампы мерцают чаще, чем на потолке
+    const flickRate = mode === 'strip' ? 12 : 9, flickLimit = mode === 'strip' ? 0.991 : 0.9994;
+
+    // включение: лампа зажигается с задержкой и мерцает, как люминесцентная трубка
+    const light = (i, j, k, d01, el) => {
+      const delay = 0.15 + d01 * 1.4 + hash(i, j, k) * 0.55;
+      if (el < delay) return 0;
+      let on = el < delay + 0.5 ? (hash(i * 7 + k, j, Math.floor(el * 26)) > 0.42 ? 0.85 : 0.06) : 1;
+      if (hash(i * 13 + k, j, Math.floor(el * flickRate)) > flickLimit) on *= 0.2;
+      return on;
+    };
+
+    const tube = (x1, y1, x2, y2, lw, I) => {
+      const seg = (w, c) => { ctx.lineWidth = w; ctx.strokeStyle = c; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); };
+      if (I > 0.12) seg(lw * 6, `rgba(80,130,255,${0.045 * I})`);
+      seg(lw * 2.6, `rgba(170,200,255,${0.15 * I})`);
+      seg(lw, `rgba(240,245,255,${Math.min(1, 0.95 * I)})`);
+    };
+
+    const edge = (cx, cz, k, g) => {
+      const a1 = k * PI3, a2 = a1 + PI3;
+      const x1 = cx + Math.cos(a1), z1 = cz + Math.sin(a1), x2 = cx + Math.cos(a2), z2 = cz + Math.sin(a2);
+      return [x1 + (x2 - x1) * g, z1 + (z2 - z1) * g, x2 - (x2 - x1) * g, z2 - (z2 - z1) * g];
+    };
+
+    const glowAt = (mx, my, r) => ptr.a * Math.exp(-((mx - ptr.sx) ** 2 + (my - ptr.sy) ** 2) / (r * r));
+
+    const drawCeiling = el => {
+      const f = Math.max(W, 720) * 0.62, hz = Math.min(H, Math.max(innerHeight, 560)) * 0.64, hgt = 2.1, zN = 1.1, zF = 22;
+      const s = reduce ? 0 : el * 0.2, shift = s % S3, rowBase = Math.floor(s / S3);
+      const camX = ptr.snx * 0.7;
+      const cMax = Math.ceil(((W / 2) * zF / f + 3) / 1.5), rMax = Math.ceil(zF / S3) + 1;
+      for (let c = -cMax; c <= cMax; c++) {
+        const off = (c & 1) ? S3 / 2 : 0;
+        for (let r = 0; r <= rMax; r++) {
+          const cx = c * 1.5, cz = r * S3 + off - shift;
+          for (let k = 0; k < 3; k++) {
+            const [x1, z1, x2, z2] = edge(cx, cz, k, 0.1);
+            if (z1 < zN || z2 < zN) continue;
+            const zm = (z1 + z2) / 2;
+            if (zm > zF) continue;
+            const sx1 = W / 2 + (x1 - camX) * f / z1, sy1 = hz - hgt * f / z1;
+            const sx2 = W / 2 + (x2 - camX) * f / z2, sy2 = hz - hgt * f / z2;
+            if (Math.max(sx1, sx2) < -40 || Math.min(sx1, sx2) > W + 40 || Math.max(sy1, sy2) < -40) continue;
+            const d01 = (zm - zN) / (zF - zN);
+            let I = light(c, r + rowBase, k, d01, el);
+            if (!I) continue;
+            const depth = Math.pow(1 - d01, 1.5);
+            I *= 0.12 + 0.5 * depth + 0.95 * glowAt((sx1 + sx2) / 2, (sy1 + sy2) / 2, 240);
+            tube(sx1, sy1, sx2, sy2, Math.min(3.2, Math.max(0.6, 0.02 * f / zm)), I);
+          }
+        }
+      }
+    };
+
+    const drawFlat = el => {
+      const R = +cv.dataset.r || 42, dx = 1.5 * R, dy = S3 * R;
+      const drift = reduce ? 0 : el * 7, oy = drift % dy, rowBase = Math.floor(drift / dy);
+      const wave = reduce || mode === 'strip' ? -9 : (el * 0.11) % 1.7 - 0.35;
+      const base = mode === 'strip' ? 0.24 : 0.13;
+      const cols = Math.ceil(W / dx) + 1, rows = Math.ceil(H / dy) + 2;
+      for (let c = -1; c <= cols; c++) {
+        for (let r = -1; r <= rows; r++) {
+          const cx = c * dx, cy = r * dy + ((c & 1) ? dy / 2 : 0) - oy;
+          for (let k = 0; k < 3; k++) {
+            const [x1, y1, x2, y2] = edge(0, 0, k, 0.1).map(v => v * R);
+            const ax = cx + x1, ay = cy + y1, bx = cx + x2, by = cy + y2;
+            const mx = (ax + bx) / 2, my = (ay + by) / 2;
+            let I = light(c, r + rowBase, k, mx / W, el);
+            if (!I) continue;
+            const u = (mx / W + my / H) / 2;
+            I *= base + 0.55 * Math.exp(-(((u - wave) / 0.09) ** 2)) + 0.9 * glowAt(mx, my, mode === 'strip' ? 120 : 210);
+            tube(ax, ay, bx, by, mode === 'strip' ? 1.1 : 1.5, I);
+          }
+        }
+      }
+    };
+
+    const frame = t => {
+      const el = (t - start) / 1000;
+      ptr.a += ((ptr.on ? 1 : 0) - ptr.a) * 0.06;
+      ptr.sx += (ptr.x - ptr.sx) * 0.12; ptr.sy += (ptr.y - ptr.sy) * 0.12;
+      ptr.snx += (ptr.nx - ptr.snx) * 0.04;
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.lineCap = 'round';
+      mode === 'ceiling' ? drawCeiling(el) : drawFlat(el);
+    };
+    const loop = t => { frame(t); raf = visible && !reduce ? requestAnimationFrame(loop) : 0; };
+
+    const resize = () => {
+      const r = host.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 1.75);
+      W = r.width; H = r.height;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!raf && started) frame(performance.now());
+    };
+    cv.ignite = () => { if (!reduce) start = performance.now(); };
+    new ResizeObserver(resize).observe(host);
+    resize();
+
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !started) { started = true; start = reduce ? -1e7 : performance.now() + (mode === 'ceiling' ? INTRO_MS : 0); }
+      if (visible && !raf) raf = requestAnimationFrame(loop);
+    }).observe(host);
+
+    if (fine && !reduce) {
+      host.addEventListener('pointermove', e => {
+        const r = cv.getBoundingClientRect();
+        ptr.x = e.clientX - r.left; ptr.y = e.clientY - r.top;
+        if (ptr.a < 0.02) { ptr.sx = ptr.x; ptr.sy = ptr.y; }
+        ptr.nx = ptr.x / W - 0.5; ptr.on = true;
+      });
+      host.addEventListener('pointerleave', () => { ptr.on = false; ptr.nx = 0; });
+    }
+  }
+  $$('canvas.hexlights').forEach(HexLights);
+
+  // лампы в шапке зажигаются, когда шапка впервые становится «стеклянной»
+  const hdrCv = $('.hdr .hexlights');
+  const igniteHdr = () => { if (scrollY > 20 && hdrCv.ignite) { hdrCv.ignite(); removeEventListener('scroll', igniteHdr); } };
+  addEventListener('scroll', igniteHdr, { passive: true });
+
+  // ---------- заголовки: слова выезжают из-под маски ----------
+  $$('h2.rv').forEach(h => { h.classList.remove('rv', 'rv-d1'); h.classList.add('split'); });
+  $$('.split').forEach(el => {
+    let i = 0;
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 1) return walk(n);
+      if (n.nodeType !== 3) return;
+      const frag = document.createDocumentFragment();
+      n.textContent.split(/( +)/).forEach(p => {
+        if (!p) return;
+        if (/^ +$/.test(p)) return frag.append(' ');
+        const w = document.createElement('span'), wi = document.createElement('span');
+        w.className = 'w'; wi.className = 'wi'; wi.style.setProperty('--i', i++); wi.textContent = p;
+        w.append(wi); frag.append(w);
+      });
+      n.replaceWith(frag);
+    });
+    walk(el);
+    io.observe(el);
+  });
+
+  // ---------- счётчики ----------
+  if (!reduce) $$('[data-to]').forEach(el => {
+    const to = +el.dataset.to, suf = el.dataset.suf || '';
+    el.textContent = '0' + suf;
+    new IntersectionObserver(([e], o) => {
+      if (!e.isIntersecting) return;
+      o.disconnect();
+      const t0 = performance.now();
+      const tick = t => {
+        const p = Math.min(1, (t - t0) / 1800);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 4))) + suf;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      setTimeout(() => requestAnimationFrame(tick), 700);
+    }).observe(el);
+  });
+
+  // ---------- проявление фото ----------
+  $$('#gal button, .about-mosaic img').forEach((el, i) => { el.classList.add('clip'); el.style.setProperty('--i', i % 4); io.observe(el); });
+
+  // ---------- подсветка карточек под курсором ----------
+  $$('.svc, .kit, .why, .br').forEach(el => {
+    el.classList.add('spot');
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', e.clientX - r.left + 'px');
+      el.style.setProperty('--my', e.clientY - r.top + 'px');
+    });
+  });
+
+  // ---------- магнитные кнопки и наклон фото в hero ----------
+  if (fine && !reduce) {
+    $$('.btn-gold').forEach(b => {
+      b.addEventListener('pointermove', e => {
+        const r = b.getBoundingClientRect();
+        b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.22}px, ${(e.clientY - r.top - r.height / 2) * 0.35}px)`;
+      });
+      b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+    });
+    const hero = $('.hero'), media = $('.hero-media');
+    hero.addEventListener('pointermove', e => {
+      const r = hero.getBoundingClientRect();
+      media.style.setProperty('--tx', (((e.clientX - r.left) / r.width) - 0.5) * 2);
+      media.style.setProperty('--ty', (((e.clientY - r.top) / r.height) - 0.5) * 2);
+    });
+    hero.addEventListener('pointerleave', () => { media.style.setProperty('--tx', 0); media.style.setProperty('--ty', 0); });
+  }
+})();
+</script>
+</body>
+</html>
